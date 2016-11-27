@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+
+<style type="text/css">
+
+	.purple{
+		background: purple;
+	}
+
+</style>
+
+<body>
+
+	<button>click me</button>
+
+</body>
+
+<script type="text/javascript">
+	
+	var button = document.querySelector('button');
+	var isPurple = false;
+
+	button.addEventListener('click',function(){
+		document.body.classList.toggle('purple');
+	})
+
+</script>
+
+</html>

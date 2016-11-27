@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Color Changer</title>
+</head>
+<body>
+
+	<button>Click Me</button>
+
+</body>
+
+<script type="text/javascript">
+	
+var button = document.querySelector('button');
+var colorChg = false;
+
+button.addEventListener('click',function(){
+	if(colorChg){
+		document.body.style.background = 'white';
+		//colorChg = false;
+	}else{
+		document.body.style.background = 'purple';
+		//colorChg = true;
+	}
+	colorChg = !colorChg;
+})
+
+</script>
+
+</html>

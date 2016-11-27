@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>To Do List</title>
+</head>
+
+<body>
+<h1>ToDo List</h1>
+
+<ul>
+	<li>'new' - add a todo</li>	
+	<li>'list' - list all todos</li>
+	<li>'quit' - quit app</li>
+</ul>
+
+</body>
+
+<script type="text/javascript">
+	var todo = ['buy new fish'];
+	var input = prompt('what you like to do?');
+	
+	while(input !== 'quit'){
+		//handle input
+		if(input === 'list'){
+			todo.forEach(function(todo1){
+				console.log(todo1)
+			});			
+		}else if(input === 'new'){
+			var newTodo = prompt('enter new todo');
+			todo.push(newTodo);
+			console.log('item added');
+		}else if(input === 'delete'){
+			var index = prompt('enter index of todo to delete');
+			todo.splice(index, 1);
+			console.log('delete todo');
+		}
+		//ask again for new input
+		input = prompt('what woudl you like to do');
+	}
+	console.log('ok, you quit');
+
+</script>
+</html>
