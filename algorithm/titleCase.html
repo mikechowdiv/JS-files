@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Title Case a Sentence</title>
+</head>
+<body>
+
+</body>
+
+<script type="text/javascript">
+	
+function titleCase(str){
+	var array = str.split(' ');
+	var mapped = array.map(function(word){
+		return word[0].toUpperCase() + word.slice(1).toLowerCase();
+	});
+	return mapped;
+}
+
+console.log("i'm a little tea pot");
+
+</script>
+</html>

@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Factorialize</title>
+</head>
+<body>
+
+</body>
+
+<script type="text/javascript">
+	
+//using reduce method to solve factorial
+
+function fact(num){
+	debugger;
+	var array = [];
+	for (var i =  1; i <= num; i++) {
+		array.push(i);
+	}
+
+	var answer = array.reduce(function(a,b){
+		return a * b;
+	});
+
+	return answer;
+}
+
+console.log(fact(5));
+
+</script>
+</html>
