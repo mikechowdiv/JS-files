@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Do While Loop</title>
+</head>
+<body>
+
+</body>
+
+<script type="text/javascript">
+	
+var randomNum = getRandomNum(5);
+var guess;
+var guessCount = 0;
+var correctGuess = false;
+
+function getRandomNum(upper){
+	var num = Math.floor(Math.random() * upper) + 1;
+	return num;
+}
+
+do{
+	guess = prompt('I am thinking of a number 1 and 5.  What is it?');
+	guessCount += 1;
+	if(parseInt(guess) === randomNum){
+		correctGuess = true;
+	}
+}while( !correctGuess )
+
+document.write("you guessed the number");
+document.write(" it took you " + guessCount + " tries ");
+
+
+</script>
+
+</html>

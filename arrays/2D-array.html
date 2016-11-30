@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>2-Dimensional Array</title>
+</head>
+
+<body>
+
+</body>
+
+<script type="text/javascript">
+	
+var playList = 
+
+[
+	['My Way', 'Frank Sinatra'],
+	['Respect','A Franklin'],
+	['Imagine', 'John Lennon'],
+	['Born to run','Burce Springstreen']
+];
+
+function print(message){
+	document.write(message);
+}
+
+function printSongs(songs){
+	var listHTML = '<ol>';
+	for (var i = 0; i < songs.length; i+= 1) {
+		listHTML += '<li>' + songs[i][0] + ' by ' + songs[i][1] + '</li>';
+	}
+	listHTML += '</ol>';
+	print(listHTML);
+}
+
+printSongs(playList);
+
+</script>
+
+</html>
