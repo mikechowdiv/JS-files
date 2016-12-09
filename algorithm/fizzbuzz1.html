@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>FizzBuzz</title>
+  </head>
+  <body>
+
+  </body>
+
+<script type="text/javascript">
+
+  function fizzbuzz(n){
+    //we will store the resulting numbers within an array
+    let result = [];
+
+    //loop from 1 to 100
+    for (let i = 1; i <= n; i++) {
+      let add = '';
+
+      //check if there is a reminder when dividing by 3, if not
+      //then we know this number is divisible by 3
+      if(i % 3 === 0){
+        add += 'Fizz';
+      }
+      if(i % 5 === 0){
+        add += 'Buzz';
+      }
+
+      //not divisible by either 3 or 5
+      if (add === ''){
+        result.push(i);
+      }
+      else{
+        result.push(add);
+      }
+    }
+    return result;
+  }
+</script>
+
+</html>

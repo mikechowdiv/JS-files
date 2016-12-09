@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Two Sum Problem</title>
+  </head>
+  <body>
+
+  </body>
+
+  <script type="text/javascript">
+    //you are given an array and some numbers S.
+    //Determine if any two numbers within the array sum to S.
+
+    function twoSum( arr, S ){
+      let hashTable = {};
+
+      //check each element in array
+      for(let i = 0; i < arr.length; i++){
+
+        //calculate S - current element
+        let sumMinusElement = S - arr[i];
+
+        //check if this number exists in hash table
+        if(hashTable[sumMinusElement] !== undefined){
+          return true;
+        }
+        //add the current numer to the hash table
+        hashTable[arr[i]] = true;
+      }
+    }
+  </script>
+</html>
