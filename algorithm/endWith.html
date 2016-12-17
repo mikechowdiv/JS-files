@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+
+</body>
+
+<script type="text/javascript">
+	
+function confirmEnding(str, target){
+
+	var x = str.length - (target.length);
+	if(str.substr(x, str.length) === target){
+		return true;
+	}else{
+		return false;
+	}
+}
+
+console.log(confirmEnding("Bastian", "n"));
+
+</script>
+</html>

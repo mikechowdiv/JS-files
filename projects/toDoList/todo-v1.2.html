@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Watch-and-Code TodoList Project</title>
+</head>
+<body>
+
+</body>
+
+<script type="text/javascript">
+	
+var todoList = {
+	todos : [],
+	displayTodo: function(){
+		console.log('My Todo :', this.todos);
+	},
+	addTodo: function(todoAdd){
+		this.todos.push({
+			todoText : todoAdd,  //"todoText" is the property of this object.  "todoAdd" is the parameter can that can change based on what your pass in.
+			completed : false
+		});
+		this.displayTodo();
+	},
+	changeTodo: function(pos, todochg){
+		this.todos[pos].todoText = todochg; //use dot notation to grab just the "todoText" property.  Set it to whatever passed in to the parameter.
+		this.displayTodo();
+	},
+	deleteTodo: function(pos){
+		this.todos.splice(pos,1);
+		this.displayTodo();
+	}
+};
+
+
+// function displayTodo(){
+// 	console.log('My Todo: ', todos);
+// }
+
+// function addTodo(){
+// 	todos.push('item4');
+// 	displayTodo();
+// }
+
+// function changeTodo(pos, newVal){
+// 	todos[pos] = newVal;
+// 	displayTodo();
+// }
+
+// function deleteTodo(pos){
+// 	todos.splice(pos,1);
+// 	displayTodo();
+// }
+
+</script>
+</html>

@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Watch-and-Code TodoList Project</title>
+</head>
+<body>
+
+</body>
+
+<script type="text/javascript">
+	
+var todos = ['item1', 'item2', 'item3'];
+
+function displayTodo(){
+	console.log('My Todo: ', todos);
+}
+
+function addTodo(){
+	todos.push('item4');
+	displayTodo();
+}
+
+function changeTodo(pos, newVal){
+	todos[pos] = newVal;
+	displayTodo();
+}
+
+function deleteTodo(pos){
+	todos.splice(pos,1);
+	displayTodo();
+}
+
+</script>
+</html>

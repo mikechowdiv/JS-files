@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Watch-and-Code TodoList Project</title>
+</head>
+<body>
+
+</body>
+
+<script type="text/javascript">
+	
+var todoList = {
+	todos : [],
+	displayTodo: function(){
+		if(this.todos.length === 0){
+			console.log('your list is empty');
+		}else{
+			console.log('My Todo :');
+			for (var i = 0; i < this.todos.length; i++) {
+			console.log(this.todos[i].todoText);
+			}
+		}
+	},
+	addTodo: function(todoAdd){
+		this.todos.push({
+			todoText : todoAdd,  
+			completed : false
+		});
+		this.displayTodo();
+	},
+	changeTodo: function(pos, todochg){
+		this.todos[pos].todoText = todochg;
+		this.displayTodo();
+	},
+	deleteTodo: function(pos){
+		this.todos.splice(pos,1);
+		this.displayTodo();
+	},
+	toggleComplete: function(pos){
+		var todo = this.todos[pos];
+		todo.completed = !todo.completed;
+		this.displayTodo();
+	}
+};
+
+
+
+
+</script>
+</html>

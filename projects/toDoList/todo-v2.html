@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Watch-and-Code TodoList Project</title>
+</head>
+
+<body>
+
+<h1>Todo List</h1>
+<div>
+	<button onclick="handlers.displayTodo()">Display Todos</button>
+</div>
+<div>
+	<button onclick="handlers.toggleAll()">Toggle All</button>
+</div>
+<div>
+	<button onclick="handlers.addTodo()">Add</button>
+	<input id="addTodoTextInput" type="text">
+</div>
+
+
+</body>
+
+<script type="text/javascript">
+	
+var todoList = {
+	todos : [],
+	displayTodo: function(){
+		if(this.todos.length === 0){
+			console.log('your list is empty');
+		}else{
+			console.log('My Todo :');
+			for (var i = 0; i < this.todos.length; i++) {
+				
+				if(this.todos[i].completed === true){
+					console.log('(x)', this.todos[i].todoText);
+				}else{
+					console.log('( )', this.todos[i].todoText);
+				}
+			}
+		}
+	},
+	addTodo: function(todoAdd){
+		this.todos.push({
+			todoText : todoAdd,  
+			completed : false
+		});
+		this.displayTodo();
+	},
+	changeTodo: function(pos, todochg){
+		this.todos[pos].todoText = todochg;
+		this.displayTodo();
+	},
+	deleteTodo: function(pos){
+		this.todos.splice(pos,1);
+		this.displayTodo();
+	},
+	toggleComplete: function(pos){
+		var todo = this.todos[pos];
+		todo.completed = !todo.completed;
+		this.displayTodo();
+	},
+	toggleAll: function(){
+		var totalTodos = this.todos.length;
+		var completedTodos = 0;
+
+		//get number of completed todos
+		for(var i = 0; i < totalTodos; i++){
+			if(this.todos[i].completed === true){
+				completedTodos++;
+			}
+		}
+
+		//case 1: if everything's true, make everything false.
+		if(completedTodos === totalTodos){
+			for(var i = 0; i < totalTodos; i++){
+				this.todos[i].completed = false;
+			}
+			//case 2: otherwise make everything true
+		}else{
+			for(var i = 0; i < totalTodos; i++){
+				this.todos[i].completed = true;
+			}
+		}
+		this.displayTodo();
+	}
+};
+
+//use this object to handle different events
+var handlers = {
+	displayTodo: function(){
+		todoList.displayTodo();
+	},
+	toggleAll: function(){
+		todoList.toggleAll();
+	},
+	addTodo: function(){
+		var addTodoTextInput = document.getElementById('addTodoTextInput');
+		todoList.addTodo(addTodoTextInput.value);
+		addTodoTextInput.value = '';
+	}
+};
+
+
+
+
+
+
+
+</script>
+</html>
