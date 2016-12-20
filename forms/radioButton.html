@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+
+<form action="hello.html" method="get" onsubmit="return isChecked()">
+	<p>Do you want to auto renew your membership?</p>
+	Yes <input type="radio" name="autoRenew" value="yes" id='autoRenewYes'><br>
+	No <input type="radio" name="autoRenew" value="no" id='autoRenewNo'><br>
+	<input type="submit" value="submit">
+</form>
+
+</body>
+
+<script type="text/javascript">
+	
+function isChecked(){
+	var YesChecked = document.getElementById('autoRenewYes').checked;
+	var NoChecked = document.getElementById('autoRenewNo').checked;
+	if(YesChecked == false && NoChecked == false){
+		alert('please select an option');
+		return false;
+	}else{
+		return true;
+	}
+}
+
+</script>
+
+
+</html>

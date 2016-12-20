@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+
+<body>
+
+<div class='header'>
+	<h1>Learning Javascript</h1>
+	<p>With Brad Traversy</p>
+</div>
+
+<div class='container'>
+	
+</div>
+
+</body>
+
+<style type="text/css">
+	
+body{
+	text-align: center;
+	font-family: arial;
+	font-size: 18px;
+}
+
+li{
+	list-style: none;
+	line-height: 2em;
+	text-align: left;
+}
+
+.header{
+	background: #f4f4f4;
+	border-bottom: #ccc 3px solid;
+	padding: 20px;
+}
+
+.container{
+	width: 700px;
+	margin: 30px auto;
+}
+
+</style>
+
+<script type="text/javascript">
+
+var apple = new Object();
+apple.color = 'red';
+apple.shape = 'round';
+apple.describe = function(){
+	return 'an apple is the color ' + this.color + ' and is the shape ' + this.shape;
+}
+
+console.log(apple.describe());
+
+console.log('-----------------------------')
+
+//constructor patterns
+
+function Fruits(name, color, shape){
+	this.name = name;
+	this.color = color;
+	this.shape = shape;
+	this.describe = function(){
+		return 'A ' + this.name + ' is the color' + this.color + ' and is the shape ' + this.shape;
+	}
+}
+
+var apple = new Fruits('apple','red','round');
+var melon = new Fruits('melon','green','round');
+console.log(apple);
+console.log(melon.describe());
+
+</script>
+
+
+</html>

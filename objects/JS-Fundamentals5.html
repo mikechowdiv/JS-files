@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+
+<body>
+
+<div class='header'>
+	<h1>Learning Javascript</h1>
+	<p>With Brad Traversy</p>
+</div>
+
+<div class='container'>
+	
+</div>
+
+</body>
+
+<style type="text/css">
+	
+body{
+	text-align: center;
+	font-family: arial;
+	font-size: 18px;
+}
+
+li{
+	list-style: none;
+	line-height: 2em;
+	text-align: left;
+}
+
+.header{
+	background: #f4f4f4;
+	border-bottom: #ccc 3px solid;
+	padding: 20px;
+}
+
+.container{
+	width: 700px;
+	margin: 30px auto;
+}
+
+</style>
+
+<script type="text/javascript">
+
+var person = {
+	firstName : 'Brad',
+	lastName: 'Traversy',
+	age: 34,
+	children: ['Brianna','Nicholas'],
+	address: {
+		street: "555 Main Street",
+		city: "Boston",
+		state: "MA"
+	},
+	fullName: function(){
+		return this.firstName + " " + this.lastName;
+	}
+}
+
+console.log(person.firstName);
+console.log(person.age);
+console.log(person.children[0]);
+console.log(person.address.state);
+console.log(person.fullName());
+
+
+</script>
+
+
+</html>

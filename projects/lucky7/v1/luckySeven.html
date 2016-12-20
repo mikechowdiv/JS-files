@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Lucky Seven</title>
+	
+	<link rel="stylesheet" type="text/css" href="style.css">
+</head>
+<body>
+
+<div style="width:310px;">
+    	<table border="0">
+            <tr>
+                <th colspan="2" align="center">
+                    <div style="margin:10px auto; text-align:center;">掷骰子游戏</div>
+                </th>
+            </tr>
+            <tr>
+                <td align="right" style='width:50%;'>
+                    开始投注金额:
+                </td>
+                <td style='width:50%;'>
+                    <input type="text" id="money" value="">
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <div class="wrap" id="wrap1">
+                        <div id="dice1" class="dice dice_1"></div>
+                    </div>
+                </td>
+                <td>
+                    <div class="wrap"  id="wrap2">
+                        <div id="dice2" class="dice dice_1"></div>
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <td colspan="2" align="center">
+                    <input type="button" id="btn" class="button blue" value="开始" onclick="playGame()"/>
+                </td>
+            </tr>
+        </table>
+        <br>
+        <span id="resultID"></span>
+        <br>
+        <span id="process"></span>
+    </div>
+</body>
+
+<script type="text/javascript" src='luck7.js'></script>
+
+
+</html>

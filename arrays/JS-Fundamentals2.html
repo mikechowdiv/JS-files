@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+
+<body>
+
+<div class='header'>
+	<h1>Learning Javascript</h1>
+	<p>With Brad Traversy</p>
+</div>
+
+<div class='container'>
+	
+</div>
+
+</body>
+
+<style type="text/css">
+	
+body{
+	text-align: center;
+	font-family: arial;
+	font-size: 18px;
+}
+
+li{
+	list-style: none;
+	line-height: 2em;
+	text-align: left;
+}
+
+.header{
+	background: #f4f4f4;
+	border-bottom: #ccc 3px solid;
+	padding: 20px;
+}
+
+.container{
+	width: 700px;
+	margin: 30px auto;
+}
+
+</style>
+
+<script type="text/javascript">
+//alternative 1
+var colors = ['red','blue','green'];
+alert(colors);
+alert(colors[1]);
+
+//alternative 2
+var colors1 = new Array('red', 'blue', 'green');
+colors1[3] = 'orange';
+alert(colors1);
+
+colors1.push('purple');
+alert(colors1);
+
+
+var num = [5,66,12,'seven'];
+alert(num[0] + num[2]);
+alert(num[3]);
+alert(num.length);
+alert(num.sort()); //sorted from small to large
+alert(num.reverse());
+
+</script>
+
+
+</html>

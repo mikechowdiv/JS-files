@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+
+<body>
+
+<div class='header'>
+	<h1 id='heading'>Learning Javascript</h1>
+	<p>With Brad Traversy</p>
+</div>
+
+<div class='container'>
+	
+	<form method="post" action='something.php' name='myForm' onsubmit="returnValidate()">
+		<div>
+			<label>First Name</label>
+			<input type="text" name="firstName" id='firstName' />
+		</div>
+		<br />
+
+		<div>
+			<label>Last Name</label>
+			<input type="text" name="lastName" id='lastName' />
+		</div>
+		<br />
+
+		<input type="submit" value="Submit" />
+	</form>
+
+</div>
+
+</body>
+
+<style type="text/css">
+	
+body{
+	text-align: center;
+	font-family: arial;
+	font-size: 18px;
+}
+
+li{
+	list-style: none;
+	line-height: 2em;
+	text-align: left;
+}
+
+.header{
+	background: #f4f4f4;
+	border-bottom: #ccc 3px solid;
+	padding: 20px;
+}
+
+.container{
+	width: 700px;
+	margin: 30px auto;
+}
+
+</style>
+
+<script type="text/javascript">
+
+function returnValidate(){
+	var firstName = document.forms['myForm']['firstName'].value;
+	if(firstName == null || firstName == ''){
+		alert('first name is required');
+		return false;
+	}
+
+	if(firstName.length < 3){
+		alert('first name must be at least 3 characters');
+		return false;
+	}
+}
+
+</script>
+
+
+</html>

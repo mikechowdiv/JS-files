@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+
+<body onload="showdate()">
+
+<div class='header'>
+	<h1 id='heading'>Learning Javascript</h1>
+	<p>With Brad Traversy</p>
+</div>
+
+<div class='container'>
+	
+	<button onclick='doClick()'>Click Me</button>
+	<button onclick="this.innerHTML = 'You clicked'">Click 2</button>
+	<button onclick="chgTxt(this)">Click3</button>
+	<button onclick="showdate()">show date</button>
+	<button onmouseout="clearDate()" onmouseover ="showdate()">show date</button>
+
+	<h1 id='time'></h1>
+</div>
+
+</body>
+
+<style type="text/css">
+	
+body{
+	text-align: center;
+	font-family: arial;
+	font-size: 18px;
+}
+
+li{
+	list-style: none;
+	line-height: 2em;
+	text-align: left;
+}
+
+.header{
+	background: #f4f4f4;
+	border-bottom: #ccc 3px solid;
+	padding: 20px;
+}
+
+.container{
+	width: 700px;
+	margin: 30px auto;
+}
+
+</style>
+
+<script type="text/javascript">
+
+function doClick(){
+	alert('you clicked')
+}
+
+function chgTxt(id){
+	id.innerHTML = 'you clicked';
+}
+
+function showdate(){
+	var time = document.getElementById('time');
+	time.innerHTML = Date();
+}
+
+function clearDate(){
+	var time = document.getElementById('time');
+	time.innerHTML = '';
+}
+
+</script>
+
+
+</html>

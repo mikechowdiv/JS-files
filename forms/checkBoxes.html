@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+
+<form action="hello.html" method="get" onsubmit="return isChecked()">
+	<p>Please select some categories you are interested in?</p>
+
+	sports <input type="checkbox" name="interest" id='sports' value="sports"><br>
+	electronics <input type="checkbox" name="interest" id='electronics' value="electronics"><br>
+	tools <input type="checkbox" name="interest" id='tools' value="tools"><br>
+
+	<input type="submit" value="submit" name="">
+
+</form>
+
+</body>
+
+<script type="text/javascript">
+	
+function isChecked(){
+	var sports = document.getElementById('sports').checked;
+	var electronics = document.getElementById('electronics').checked;
+	var tools = document.getElementById('tools').checked;
+	if(sports == false && electronics == false && tools == false){
+		alert('please check a category');
+		return false;
+	}else{
+		return true;
+	}
+}
+
+</script>
+
+</html>

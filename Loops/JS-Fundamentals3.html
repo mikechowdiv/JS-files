@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+
+<body>
+
+<div class='header'>
+	<h1>Learning Javascript</h1>
+	<p>With Brad Traversy</p>
+</div>
+
+<div class='container'>
+	
+</div>
+
+</body>
+
+<style type="text/css">
+	
+body{
+	text-align: center;
+	font-family: arial;
+	font-size: 18px;
+}
+
+li{
+	list-style: none;
+	line-height: 2em;
+	text-align: left;
+}
+
+.header{
+	background: #f4f4f4;
+	border-bottom: #ccc 3px solid;
+	padding: 20px;
+}
+
+.container{
+	width: 700px;
+	margin: 30px auto;
+}
+
+</style>
+
+<script type="text/javascript">
+
+for(var i = 0; i < 5; i++){
+	console.log(i);
+}
+
+console.log('--------------------')
+
+var i = 0;
+while(i < 5){
+	console.log(i);
+	i++;
+}
+
+console.log('--------------------')
+
+var num = [33,54,32,11,26];
+num.forEach(function(number){
+	console.log(number);
+});
+
+console.log('--------------------')
+
+var num = [33,54,32,11,26];
+num.reverse();
+for(var i = 0; i < num.length; i++){
+	console.log(num[i]);
+}
+
+console.log('--------------------')
+
+
+</script>
+
+
+</html>

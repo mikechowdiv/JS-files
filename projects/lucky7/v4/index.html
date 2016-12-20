@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+	<title>掷骰子游戏</title>
+
+	<link rel="stylesheet" type="text/css" href="bootstrap-3.3.7-dist/css/bootstrap.min.css"/>
+	<style>
+        .starter {padding: 40px 15px; text-align: center;}
+    </style>
+</head>
+
+<boby>
+<nav class="navbar navbar-inverse nav-fixed-top" role="navigation">
+    <div class="container">
+        <div class="navbar-header">
+            <a href="#" class="navbar-brand">Js小游戏</a>
+        </div>
+    </div>
+</nav>
+<div class="container">
+    <div class="starter">
+        <h1>掷骰子游戏</h1>
+    </div>
+	
+	<div class="form-group">
+		<label for="firstname" class="col-sm-2 control-label">开始投注金额:</label>
+		<div class="input-group">
+            <span class="input-group-addon">$</span>
+            <input type="text" class="form-control" id="money" placeholder="请输入金额">
+        </div>
+	</div>
+	<p class="text-center">
+		<button type="button" class="btn btn-info" id="btn" onclick="playGame()">开始</button>
+	</p>
+	<p class="text-center">
+		<span id="resultID"></span>
+	</p>
+</div>
+	
+</body>
+<!-- jQuery Js -->
+<script src="js/jquery-1.10.2.js"></script>
+<!-- Bootstrap Js -->
+<script src="bootstrap-3.3.7-dist/js/bootstrap.min.js"></script>
+
+<script type="text/javascript">
+
+//初始化参数
+var fin1=false;
+var fin2=false;
+var num1 = 1;			//存放两个骰子的数值
+var num2 = 1;			//存放两个骰子的数值
+var isAutoNext=true;	//是否自动进入下一局
+var isRuning=false;
+
+var gameNum=0;			//记录游戏次数
+var userMoney=0;		//用户金额
+
+var maxMoney=0;
+var maxMoneyIndex=0;
+
+//开始游戏
+function playGame(){
+	if(document.getElementById("btn").innerHTML=="再玩一次"){
+		document.getElementById("resultID").innerHTML="";
+		document.getElementById("btn").innerHTML="开始";
+		document.getElementById("money").value="";
+		return;
+	}else{
+		if(document.getElementById("money").value==""){
+			alert("请输入投注金额!");
+			return;
+		}
+		if(!isRuning){
+			isRuning=true;
+			if(gameNum==0){
+				//第一次执行,获取用户投注金额
+				userMoney=document.getElementById("money").value;
+				if(userMoney==null){
+					userMoney=0;
+				}
+				userMoney=userMoney*1;
+				document.getElementById("resultID").innerHTML="";
+			}
+			
+			if(userMoney==0){
+				//用户金额已经输光了
+				shopResult();
+				return;
+			}
+
+			num1 = Math.floor(Math.random()*6+1);//产生随机数1-6
+			num2 = Math.floor(Math.random()*6+1);//产生随机数1-6
+			
+			fin1=true;
+			fin2=true;
+			calculationResult();
+		}
+	}
+
+}
+
+//计算结果
+function calculationResult(){
+	if(fin1 && fin2){
+		gameNum++;
+		fin1=false;
+		fin2=false;
+		//开始计算 游戏结果
+		var sum=num1+num2;
+		var winScore="";
+		var lostScore="";
+		if(sum==7){//玩家赢 +$4 
+			userMoney+=4;
+			maxMoney+=4;
+			maxMoneyIndex=gameNum;
+			winScore="$4";
+		}else{//玩家输 -$1
+			userMoney-=1;
+			lostScore="$1";
+		}
+		document.getElementById("btn").innerHTML="再投一次";
+		
+		if(isAutoNext){
+			setTimeout(function(){
+				//自动进入下一局
+				isRuning=false;
+				playGame();
+			},200);
+		}else{
+			isRuning=false;
+		}
+	}
+}
+
+//显示结果
+function shopResult(){
+	
+	//插入结果表格
+	var htmlStr="<table class='table table-striped' >"+
+					"<thead><tr align='center'>"+
+						"<th colspan='2'>结果</th>"+
+					"</tr></thead>"+
+					"<tbody><tr>"+
+						"<td align='left' style='width:70%;'>开始金额: </td><td>"+document.getElementById("money").value+"</td>"+
+					"</tr>"+
+					"<tr>"+
+						"<td align='left'>破产前投掷次数: </td><td>"+gameNum+"</td>"+
+					"</tr>"+
+					"<tr>"+
+						"<td align='left'>曾经赢得最高金额记录: </td><td>"+maxMoney+"</td>"+
+					"</tr>"+
+					"<tr>"+
+						"<td align='left'>玩家使用多少次赢得最高金额: </td><td>"+maxMoneyIndex+"</td>"+
+					"</tr></tbody>"+
+				"</table>";
+	document.getElementById("resultID").innerHTML=htmlStr;
+	
+	//初始化
+	document.getElementById("btn").innerHTML="再玩一次";
+	gameNum=0;
+	maxMoney=0;
+	maxMoneyIndex=0;
+	isRuning=false;
+}
+ 
+</script>
+</html>
