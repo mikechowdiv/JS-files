@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+
+<h1 id='title'>Example</h1>
+
+<input type="text" id='myTextBox'>
+<input type="submit" value="click me" onclick="myFun()">
+
+</body>
+
+<script type="text/javascript">
+	
+function myFun(){
+	var myValue = document.getElementById('myTextBox').value;
+	var myTitle = document.getElementById('title').innerHTML = myValue;
+}
+
+</script>
+</html>

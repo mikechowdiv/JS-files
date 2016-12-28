@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+
+<h1>Mortgage calculator</h1>
+
+<h2>Monthly cost</h2>
+
+<div>
+  <div>
+    <label>Mortgage amount</label>
+    <input id="amount" type="number" value="100000" onchange="displayCalc();">
+  </div>
+
+  <div>
+    <label>Interest rate (%)</label>
+    <input id="rate" type="number" value="3.92" onchange="displayCalc();">
+  </div>
+
+  <div>
+    <label>Mortgage period (years)</label>
+    <input id="years" type="number" value="25" onchange="displayCalc();">
+  </div>
+
+  <div>
+    <label>Monthly payments</label>
+    <span id="monthly"></span>
+  </div>
+
+  <div>
+    <label>Total cost of mortgage</label>
+    <span id="total"></span>
+  </div>
+</div>
+
+</body>
+
+
+<script type="text/javascript">
+	
+	formatMoney = function(number) {
+
+	var number = Math.round(number * 100) / 100;
+
+	number = number.toString(), 
+	pounds = number.split('.')[0], 
+	pennies = (number.split('.')[1] || '') +'00';
+	pounds = pounds.split('').reverse().join('')
+		.replace(/(\d{3}(?!$))/g, '$1,')
+		.split('').reverse().join('');
+  var number = '£' + pounds + '.' + pennies.slice(0, 2);
+	
+	return number;
+}
+
+displayCalc = function() {
+  var amount = +document.getElementById('amount').value;
+  var rate = +document.getElementById('rate').value;
+  var period = +document.getElementById('years').value;
+  
+  var lengthMonths = period * 12;
+  var monthlyInterestRate = (rate / 12) * 0.01;
+
+  var monthlyPayment = (amount * monthlyInterestRate) / (1 - Math.pow(1 + monthlyInterestRate, -lengthMonths));
+  var totalPaid = monthlyPayment * lengthMonths;
+  
+	document.getElementById("monthly").innerHTML = formatMoney(monthlyPayment);
+	document.getElementById("total").innerHTML = formatMoney(totalPaid);
+}
+
+displayCalc();
+</script>
+
+</html>

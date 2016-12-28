@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<!-- Latest compiled and minified CSS -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+
+<!-- jQuery library -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+
+<!-- Latest compiled JavaScript -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+</head>
+
+<body>
+
+<div class="container">
+	<div class="row">
+		<div class="col-xs-10 col-xs-offset-1 col-sm-8 col-sm-offset-2 bg-white">
+			<div class="container table">
+				<h3>cart</h3>
+				<table td='priceTable' class="table">
+					<tr>
+						<th>item</th>
+						<th>prices</th>
+						<th>units</th>
+						<th>subtotal</th>
+					</tr>
+
+					<tr>
+						<td>burger</td>
+						<td>$4</td>
+						<td>
+							<input type="number" class="units-class" value="1" onchange="cal()">
+						</td>
+						<td>$<span class="subtotal-class"></span></td>
+					</tr>
+
+					<tr>
+						<td>drink</td>
+						<td>$2</td>
+						<td>
+							<input type="number" class="units-class" value="1" onchange="cal()">
+						</td>
+						<td>$<span class="subtotal-class"></span></td>
+					</tr>
+
+					<tr>
+						<td>fires</td>
+						<td>$3</td>
+						<td>
+							<input type="number" class="units-class" value="1" onchange="cal()">
+						</td>
+						<td>$<span class="subtotal-class"></span></td>
+					</tr>				
+				</table>
+				<h4 class="pull-right">Grand Total: $<span id='total-id'></span></h4>
+			</div>
+		</div>
+	</div>
+</div>
+
+</body>
+
+<script type="text/javascript">
+	
+	var prices = [4,2,3];
+	var units = document.getElementsByClassName('units-class');
+	var subs = document.getElementsByClassName('subtotal-class');
+	var grand = document.getElementById('total-id');
+	var sum = 0;
+
+	cal();
+
+	function cal(){
+		sum = 0;
+		for(var i = 0; i < units.length; i++){
+			var subtotal = units[i].value * prices[i];
+			subs[i].innerHTML = subtotal;
+			sum += subtotal;
+		}
+		grand.innerHTML = sum;
+	}
+</script>
+
+</html>

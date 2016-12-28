@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+
+<div id='content'>
+	<p>How many dices?
+	<br>
+	<input type="text" id="numDice">
+	</p>
+
+	<p>How many sides per die?
+	<br>
+	<input type="text" id="numSides">
+	</p>
+
+	<button onclick="diceRoll()" id='roll'>Roll</button>
+
+	<p id='result'></p>
+
+</div>
+
+</body>
+
+<script type="text/javascript">
+	
+function diceRoll(){
+	var numDice = document.getElementById('numDice').value;
+	var numSides = document.getElementById('numSides').value;
+	var result = '';
+
+	for(var i = 0; i < numDice - 1; i++){
+		result += (Math.floor(Math.random() * numSides + 1) + " ").toString() + ', ';
+	}
+
+	result += (Math.floor(Math.random() * numSides + 1) + " ").toString();
+
+	document.getElementById('result').innerHTML = result
+}
+
+</script>
+
+</html>

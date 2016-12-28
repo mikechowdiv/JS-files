@@ -2,103 +2,153 @@
 <html>
 <head>
 	<title></title>
-	<link rel="stylesheet" type="text/css" href="bootstrap-3.3.7-dist/css/bootstrap.min.css"/>
+	<!-- Latest compiled and minified CSS -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+
+<!-- jQuery library -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+
+<!-- Latest compiled JavaScript -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 </head>
 
-<body>
+<boby>
 
-<nav class='navbar navbar-inverse nav-fixed-top' role='navigation'>
-	<div class="container">
-		<div class='navbar-header'>
-			<a href="#" class='nav-bar-brand'>Lucky Seven</a>
-		</div>
+   
+
+<div class="container">
+    
+	
+	<div >
+		<label>Starting bet:</label>
+		<div>
+            <span>$</span>
+            <input type="text" id="money" placeholder="enter your bet: ">
+        </div>
 	</div>
-</nav>
-
-<div class='container'>
-	<div class='starter'>
-		<h1>Lucky Seven</h1>
-	</div>
-
-	<div class='form-group'>
-		<label class='col-sm-2' control-label>Starting Bet: </label>
-		<div class='input-group'>
-			<span class='input-group-addon'>$</span>
-			<input type="text" id="money" class="form-control" placeholder="please input amount">
-		</div>
-	</div>
-
-	<p class='text-center'>
-		<button type='button' class='btn btn-danger' id='btn' onclick="playGame()">PLAY</button>
+	<p>
+		<button id="btn" onclick="playGame()">Start</button>
 	</p>
-
-	<p class='text-center'>
-		<span id='resultID'></span>
+	<p>
+		<span id="resultID"></span><br>
+		<span id='count'></span><br>
+		<span id='maxWin'></span><br>
+		<span id='maxWinIdx'></span>
 	</p>
 </div>
-
+	
 </body>
 
-<!-- jQuery Js -->
-<script src="js/jquery-1.10.2.js"></script>
-<!-- Bootstrap Js -->
-<script src="bootstrap-3.3.7-dist/js/bootstrap.min.js"></script>
 
 <script type="text/javascript">
-	
-var fin1 = false;
-var fin2 = false;
-var num1 = 1;
-var num2 = 1;
-var nextGame = true;
-var isRunning = false;
 
-var betCount = 0;
-var playerGold = 0;
+//初始化参数
+var fin1=false;
+var fin2=false;
+var num1 = 1;			//存放两个骰子的数值
+var num2 = 1;			//存放两个骰子的数值
+var isAutoNext=true;	//是否自动进入下一局
+var isRuning=false;
 
-var maxAmt = 0;
-var maxAmtIdx = 0;
+var gameNum=0;			//记录游戏次数
+var userMoney=0;		//用户金额
 
+var maxMoney=0;
+var maxMoneyIndex=0;
+
+//开始游戏
 function playGame(){
-	if(document.getElementById('btn').innerHTML == 'Play Again?'){
-		document.getElementById('resultID').innerHTML = '';
-		document.getElementById('btn').innerHTML = 'Play';
-		document.getElementById('money').value = '';
+	if(document.getElementById("btn").innerHTML=="PlayAgain"){
+		document.getElementById("resultID").innerHTML="";
+		document.getElementById("btn").innerHTML="Start";
+		document.getElementById("money").value="";
 		return;
 	}else{
-		if(document.getElementById('money').value==''){
-			alert('please enter your bet');
+		if(document.getElementById("money").value==""){
+			alert("please enter your bet");
 			return;
 		}
-		if(!isRunning){
-			isRunning = true;
-			if(betCount == 0){
-				playerGold = document.getElementById('money').value;
-				if(playerGold == null){
-					playerGold = 0;
+		if(!isRuning){
+			isRuning=true;
+			if(gameNum==0){
+				//第一次执行,获取用户投注金额
+				userMoney=document.getElementById("money").value;
+				if(userMoney==null){
+					userMoney=0;
 				}
-				playerGold = playerGold * 1;
-				document.getElementById('resultID').innerHTML = '';
+				userMoney=userMoney*1;
+				document.getElementById("resultID").innerHTML="";
 			}
-
-			if(playerGold == 0){
-				showResult();
+			
+			if(userMoney==0){
+				//用户金额已经输光了
+				shopResult();
 				return;
 			}
 
-			num1 = Math.floor(Math.random() * 6 + 1);
-			num2 = Math.floor(Math.random() * 6 + 1);
+			num1 = Math.floor(Math.random()*6+1);//产生随机数1-6
+			num2 = Math.floor(Math.random()*6+1);//产生随机数1-6
+			
+			fin1=true;
+			fin2=true;
+			calculationResult();
+		}
+	}
 
-			fin1 = true;
-			fin2 = true;
-			calculateResult();
+}
 
+//计算结果
+function calculationResult(){
+	if(fin1 && fin2){
+		gameNum++;
+		fin1=false;
+		fin2=false;
+		//开始计算 游戏结果
+		var sum=num1+num2;
+		var winScore="";
+		var lostScore="";
+		if(sum==7){//玩家赢 +$4 
+			userMoney+=4;
+			maxMoney+=4;
+			maxMoneyIndex=gameNum;
+			winScore="$4";
+		}else{//玩家输 -$1
+			userMoney-=1;
+			lostScore="$1";
+		}
+		document.getElementById("btn").innerHTML="Another Bet";
+		
+		if(isAutoNext){
+			
+				//自动进入下一局
+				isRuning=false;
+				playGame();
+			
+		}else{
+			isRuning=false;
 		}
 	}
 }
 
-
-
+//显示结果
+function shopResult(){
+	var result = document.getElementById('resultID');
+	var count = document.getElementById('count');
+	var maxWin = document.getElementById('maxWin');
+	var maxWinIdx = document.getElementById('maxWinIdx');
+	result.innerHTML = "Starting amount: $" + document.getElementById('money').value;
+	count.innerHTML = "Total rolls before going broke: " + gameNum;
+	maxWin.innerHTML = "Highest amount won: $" + maxMoney;
+	maxWinIdx.innerHTML ="Rollcount on highest amount won: " + maxMoneyIndex; 
+	
+	
+	//初始化
+	document.getElementById("btn").innerHTML="PlayAgain";
+	gameNum=0;
+	maxMoney=0;
+	maxMoneyIndex=0;
+	isRuning=false;
+}
+ 
 </script>
-
 </html>

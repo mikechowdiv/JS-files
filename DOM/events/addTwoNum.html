@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+
+<body>
+
+<h1>Add Two Number</h1>
+
+<p>
+	<input id='num1'> + <input id='num2'>
+</p>
+<p id='sumAll'></p>
+
+</body>
+
+<script type="text/javascript">
+	
+var numA = document.getElementById('num1');
+var numB = document.getElementById('num2');
+var sumX = document.getElementById('sumAll');
+
+numA.addEventListener('input',add);
+numB.addEventListener('input',add);
+
+function add(){
+	var X = parseFloat(numA.value);
+	var Y = parseFloat(numB.value);
+	sumX.innerHTML = 'your sum is ' + (X + Y);
+}
+
+</script>
+
+</html>

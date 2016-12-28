@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+
+<body>
+
+<!-- for/in - loops through the properties of an object -->
+
+<p>click the button</p>
+<button onclick="myFun()">click me</button>
+
+<p id='demo'></p>
+
+</body>
+
+<script type="text/javascript">
+	function myFun(){
+		var person = {firstName: 'John', lastName: 'Doe', age: 25};
+		var text = '';
+		var x;
+		for(x in person){
+			text += person[x] + '';
+		}
+		document.getElementById('demo').innerHTML = text;
+
+	}
+</script>
+
+</html>

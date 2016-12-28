@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+
+<input type="text" id="dice" placeholder="dice">
+<input type="text" id="sides" placeholder="sides">
+<input type="submit" id="submit" value="submit">
+
+<br>
+<div id='output'></div>
+
+</body>
+
+<script type="text/javascript">
+	
+function roll(dice,sides){
+	var results = [];
+	for(var i = 0; i < dice; i++){
+		results.push(Math.floor(Math.random() * sides) + 1);
+	}
+	return results;
+}
+
+document.getElementById('submit').addEventListener('click',function(){
+	var dice = document.getElementById('dice').value;
+	var sides = document.getElementById('sides').value;
+	document.getElementById('output').innerHTML = roll(dice,sides);
+})
+
+</script>
+
+</html>

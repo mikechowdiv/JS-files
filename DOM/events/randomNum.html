@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+
+<button onclick="myFun()">Click it</button>
+<p id='demo'></p>
+
+</body>
+
+<script type="text/javascript">
+	
+function myFun(){
+	var result = document.getElementById('demo');
+	result.innerHTML = Math.floor(Math.random() * 6) + 1;
+}
+
+</script>
+
+</html>

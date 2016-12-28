@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Dice Game</title>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script> 
+</head>
+<body>
+
+<div id='wrapper'>
+	
+<div id='tie-text' class="red"></div>
+	<div id='one-box'>
+		<p class="Player1">Player1</p>
+		<div class="dice-box">
+			<p class="dice-roll-1"></p>
+		</div>
+
+		<p id='scorecard1' class="red"></p>
+	</div>
+
+	<div id='two-box'>
+		<p class="Player2">Player2</p>
+		<div class="dice-box">
+			<p class="dice-roll-2"></p>
+		</div>
+
+		<p id='scorecard2' class="red"></p>
+	</div>
+
+	<div id='roll-box'>
+		<button class="btn">Roll</button>
+	</div>
+
+</div>
+
+</body>
+
+<script type="text/javascript">
+	
+$(document).ready(function(){
+	var scorecard1 = $('#scorecard1')
+	var scorecard2 = $('#scorecard2')
+
+	$('button').click(function(){
+		var randomIndex1 = Math.floor(Math.random() * 6) + 1;
+		var randomIndex2 = Math.floor(Math.random() * 6) + 1;
+		scorecard1.text('');
+		scorecard2.text('');
+		$('#tie-text').text('');
+		$('.dice-roll-1').text(randomIndex1);
+		$('.dice-roll-2').text(randomIndex2);
+		if(randomIndex1 > randomIndex2){
+			scorecard1.text('Player1 wins');
+		}else if(randomIndex1 < randomIndex2){
+			scorecard2.text('Player2 wins');
+		}else if(randomIndex1 = randomIndex2){
+			$('#tie-text').text('tie');
+		}
+	})
+})
+
+</script>
+
+
+</html>

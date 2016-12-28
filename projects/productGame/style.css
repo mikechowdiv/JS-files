@@ -1,0 +1,18 @@
+#form{
+	width: 300px;
+	float: left;
+}
+
+#prices{
+	width: 300px;
+	float: right;
+}
+
+#images{
+	margin-left: 360px;
+	margin-right: 310px;
+	width: 281px;
+	height: 403px;
+	background-image: 
+	position: relative;
+}

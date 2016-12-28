@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+  <div class="container">
+    <header>
+      <h1 id="title" class="text-center">Tip Calculator</h1>
+    </header>
+    <form action="javascript:void(calc())">
+      <input class="form-control" id="bill" type="text" placeholder="Total Bill">
+      <br>
+      <input class="form-control" id="split" type="text" placeholder="Number of payers">
+      <br>
+      <button class="btn btn-success btn-lg">Calculate</button>
+      </br>
+      </br>
+      <div class="results">
+        <p><strong>Tip:&nbsp; <span id="tip"></span></strong></p>
+        <p><strong>Total:&nbsp; <span id="total"></span></strong></p>
+        <p><strong>Split Total:&nbsp; <span id="splitTotal"></span></strong></p>
+      </div>
+    </form>
+    <br>
+  </div>
+</body>
+
+<script type="text/javascript">
+	
+	var calc = function() {
+  var bill = Number(document.getElementById('bill').value);
+  var split = Number(document.getElementById('split').value)
+  var tip = bill * .15;
+  var totalBill = bill + tip;
+  var splitPerPerson = totalBill / split
+
+  document.getElementById("tip").innerHTML = "$" + Number(tip).toFixed(2);
+  document.getElementById("total").innerHTML = "$" + Number(totalBill).toFixed(2);
+  document.getElementById("splitTotal").innerHTML = "$" + Number(splitPerPerson).toFixed(2);
+}
+</script>
+
+</html>

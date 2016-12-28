@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+
+    <div class="container">
+        <div class="row">
+
+            <div class="col-sm-6 col-sm-offset-3" id="calcBody">
+
+
+                <h1>Tip calculator</h1>
+
+                <div id="calculator">
+
+                    <form>
+                        <!-- How much was your bill -->
+                        <label class="textBold">
+                            How much was your bill? <br>
+                            <input class="form-control" type="text" id="billAmount" placeholder="$"/>
+                        </label>
+                        <!-- Service quality in percentage -->
+                        <label>
+                            How was your service?<br />
+                            <select class="form-control" id="serviceQuality">
+                                <option disabled selected value="0">
+                                     -- Choose an option --
+                                </option>
+                                <option value="0.3">30% - Outstanding</option>
+                                <option value="0.2">20% - Good</option>
+                                <option value="0.15">15% - It was okay</option>
+                                <option value="0.1">10% - Bad</option>
+                                <option value="0.05">5% - Terrible</option>
+                            </select>
+                        </label>
+                        <!-- Amount of people sharing the bill -->
+                        <label>
+                            How many people are sharing the bill?
+                            <input class="form-control" type="text" id="totalPeople" /> people
+                        </label> <br />
+                        <button type="button" id="calculate">Calculate</button>
+                    </form>
+                </div><!-- calculator ENDS -->
+                <div id="totalTip">
+                    <sup>$</sup><span id="tip">0.00</span>
+                    <small id="each">each</small>
+                </div><!-- Total tip -->
+            </div>
+        </div>
+
+    </div><!-- container ENDS -->
+
+   
+</body>
+
+
+<script type="text/javascript">
+	
+	// Hide TIP amount
+document.getElementById("totalTip").style.display = "none";
+document.getElementById("each").style.display = "none";
+
+// Button calls function
+document.getElementById("calculate").onclick = function() { 
+	calculateTip(); 
+};
+
+// function
+
+function calculateTip() {
+    //Store the data of inputs
+    var billAmount = document.getElementById("billAmount").value;
+    var serviceQuality = document.getElementById("serviceQuality").value;
+    var totalPeople = document.getElementById("totalPeople").value;
+
+    // Check if inputs are filled right
+    if (billAmount === "" || serviceQuality === 0) {
+        window.alert("Geeezus fill in input fields like a man");
+        return;
+    }
+    // Show or hide "each" based on number of people
+    if (totalPeople === "" || totalPeople <= 1) {
+        totalPeople = 1;
+        document.getElementById("each").style.display = "none";
+    } else {
+        document.getElementById("each").style.display = "block";
+    }
+    // Math
+    var total = (billAmount * serviceQuality) / totalPeople;
+    total = Math.round(total * 100)/100;
+    total = total.toFixed(2);
+    // Display the tip
+    document.getElementById("totalTip").style.display = "block";
+    document.getElementById("tip").innerHTML = total;
+
+
+}
+</script>
+
+</html>

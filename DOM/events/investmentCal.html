@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<body> 
+<div class="form">
+
+<h1>Investment Calculator</h1> <br/>
+
+<form id="resetForm">
+<label>Amount interested (principal)</label> <input type="text" id="principal" size=10><br/> <br/>
+<label>Annual rate (example: .065)</label> <input type="text" id="annualRate" size=10 style="float: left;"> <br/><br/>
+<label>Number of years</label><input type="text" id="years" size=10><br/> <br/>
+<label>Periods per year</label> <input type="text" id="periodsPerYear" size=10> <br/><br/><br/>
+</form>
+
+<button type="button" onclick="doFV()">Compute future value</button> <br/><br/>
+<button type="button" onclick="reset()" value="Reset form">Reset</button><br/><br/><br/><br/>
+
+<div class="output" id="outputDiv"></div> 
+  
+</div>                               
+</body>
+
+
+<style type="text/css">
+	
+body{
+	width: 450px; 
+	border: 2px solid; 
+	margin: 50px auto; 
+	background-color: #f1f1f1;
+}
+
+.form {
+	background-color: #cccccc; 
+	padding: 15px 30px;
+}
+
+label {
+	float: left; 
+	width: 200px;
+}
+
+button{
+	float: left; 
+	width: auto;
+	background-color: #ffffff;
+	padding: 2px 3px 3px 3px;
+}
+
+.output{
+	color: #ff0000;
+}
+
+/* Media Queries */
+@media (min-width: 320px){
+	body {width:90%; font-size: 70%}
+	label {width:60%;}
+	button {width:100%;}
+}
+
+@media (min-width: 360px){
+	body {width:95%; font-size: 70%}
+	label {width:69%;}
+	button {width:100%;}
+}
+
+@media (min-width: 768px){
+	body {width:50%; font-size: 90%}
+	label {width:69%;}
+	button {width:auto;}
+}
+
+@media (min-width: 980px){
+	body {width:40%; font-size: 100%}
+	label {width:69%;}
+	button {width:auto;}
+}
+
+@media (min-width: 1280px){
+	body {width:35%; font-size: 100%}
+	label {width:69%;}
+	button {width:auto;}
+}
+
+@media (min-width: 1920px){
+	body {width:25%; font-size: 100%}
+	label {width:69%;}
+	button {width:auto;}
+}
+
+
+</style>
+
+
+<script type="text/javascript">
+	
+	function doFV() {
+
+	// Get user input from the text field that has the id.
+	var principal = parseFloat(document.getElementById('principal').value);
+	var annualRate = parseFloat(document.getElementById('annualRate').value);
+	var years = parseFloat(document.getElementById('years').value);
+	var periodsPerYear = parseFloat(document.getElementById('periodsPerYear').value);
+	
+	// Call the function computeFutureValue(principal, annualRate, years, periodsPerYear)
+	// and store the value returned by function in a variable
+	var f = computeFutureValue(principal, annualRate, years, periodsPerYear);
+	
+	// Display the result
+	document.getElementById('outputDiv').innerHTML = 'Future Value is $ ' + f;
+}
+ 
+
+ function computeFutureValue(principal, annualRate, years, periodsPerYear) {
+
+	// Compute and return the future value of an investment.
+	var f = principal * Math.pow(1 + annualRate / periodsPerYear, (years * periodsPerYear));
+ 
+	return f.toFixed(2);
+ 
+}
+
+
+	// Reset the form
+function reset() {
+	document.getElementById("resetForm").reset();
+}
+</script>
+
+
+</html>

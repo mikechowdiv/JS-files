@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+
+<h1>Calculate your age in days</h1>
+<section id=input>
+	<h3>enter your age: </h3>
+	<input type="number" id="age" min='1' max='100'/>
+	<button onclick="calAge()">Start</button>
+</section>
+
+ 
+<div class="outputting">Your age in days: <p id='output'></p></div>
+
+</body>
+
+
+<script type="text/javascript">
+	
+	function calAge(){
+		var age = document.getElementById('age').value;
+		var result = age * 365;
+		document.getElementById('output').innerHTML = result;
+
+		if(age === ''){
+			document.getElementById('output').innerHTML = "this field is emptry";
+		}else if(age < 0){
+			document.getElementById('output').innerHTML = 'your age cannot be negative';
+		}else{
+			document.getElementById('output').innerHTML = result;
+		}
+	}
+</script>
+
+</html>

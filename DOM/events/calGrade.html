@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+
+<p>
+	Q1 Grade: <input type="text" id="q1"><br>
+	Q2 Grade: <input type="text" id="q2"><br>
+	Q3 Grade: <input type="text" id="q3"><br>
+</p>
+
+<button id='btn'>Calculate</button>
+<p>Final Grade: <span id='ans'></span></p>
+
+</body>
+
+<script type="text/javascript">
+	
+
+	
+document.getElementById('btn').onclick=function(){
+	var a = document.getElementById('q1').value * 0.4;
+	var b = document.getElementById('q2').value * 0.4;
+	var c = document.getElementById('q3').value * 0.2;
+	document.getElementById('ans').innerHTML = a + b + c;
+}
+
+</script>
+
+</html>

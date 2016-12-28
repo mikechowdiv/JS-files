@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+
+
+
+<div id='dice1' class='dice'>0</div>
+<div id='dice2' class="dice">0</div>
+
+<button onclick="rollDice()">Roll</button>
+
+<p id='result'></p>
+
+</body>
+
+<style type="text/css">
+	
+.dice{
+	float: left;
+	width: 32px;
+	border: #999 1px solid;
+	padding: 10px;
+	font-size: 24px;
+	text-align: center;
+	margin: 5px;
+}	
+
+</style>
+
+<script type="text/javascript">
+	
+function rollDice(){
+	var dice1 = document.getElementById('dice1');
+	var dice2 = document.getElementById('dice2');
+	var result = document.getElementById('result');
+	var d1 = Math.floor(Math.random() * 6) + 1;
+	var d2 = Math.floor(Math.random() * 6) + 1;
+	var total = d1 + d2;
+	dice1.innerHTML = d1;
+	dice2.innerHTML = d2;
+	result.innerHTML = 'You rolled ' + total;
+	if(d1 == d2){
+		result.innerHTML += ' doubles! ';
+	}
+}
+
+</script>
+
+
+</html>

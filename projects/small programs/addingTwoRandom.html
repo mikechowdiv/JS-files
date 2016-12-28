@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+
+<div id='answer'>
+	<button onclick="add()">add</button>
+</div>
+
+</body>
+
+<script type="text/javascript">
+	
+var num1;
+var num2;
+var sum;
+
+num1 = parseInt(Math.random() * 6) + 1;
+num2 = parseInt(Math.random() * 6) + 1;
+
+
+
+function add(){
+	sum = parseInt(num1) + parseInt(num2);
+	document.getElementById('answer').innerHTML = sum;
+}
+
+
+</script>
+</html>
