@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+
+<form name="orderform" id="orderform" action="javascript:alert('success')" onsubmit="return false">
+<table border="1">
+ <tr><th>
+   <label class="style11">Product Item:<span class="style1">*</span> </label>
+  </th>
+  <th scope="row">
+   <div align="left">
+   <select name="price" id="Proditem">
+    <option value='' selected></option>
+    <option value="4.95">6&quot; x 6&quot; Volkanik Ice</option>
+    <option value="49.50">Ten pack 6&quot; x 6&quot; Volkanik Ice</option>
+   </select>
+   </div>
+  </th>
+ </tr>
+ 
+ <tr bgcolor="#ffe9d2">
+  <th bgcolor="#ffe9d2" scope="row">
+   <div align="left">
+    <span class="style11">Quantity: <span class="style1">*</span> </span>
+   </div>
+  </th>
+  <th scope="row">
+   <div align="left">
+    <input name="quantity" type="text" id="quantity" size="7">
+   </div>
+  </th>
+ </tr>
+ 
+ <tr bgcolor="#FFCCCC">
+  <th class="style6" scope="row"><div align="right">Subtotal:</div></th>
+  <th scope="row">              
+   <div align="left">
+    <label><span class="style11">$</span></label>
+    <input name="subtotal" type="text" id="subtotal" size="10"> &nbsp;&nbsp;
+    <input name="subtotalBtn" onClick="subTotal();" type="button" id="subtotalBtn" value="Subtotal">
+   </div>
+  </th>
+ </tr>
+ 
+ <tr>
+  <th class="style12" scope="row"><label></label></th>
+  <th class="style12" scope="row">
+   <div align="left">
+    <label>
+     <span class="style14">
+     <input name="salestax" type="text" id="salestax" onFocus="this.form.elements[1].focus()" size="7">                
+     <input name="taxamt" type="hidden" id="taxamt2" value=".0875">
+     <input name="notax" type="hidden" id="notax" value="0">
+     <input type="checkbox" id="billState" onClick="taxCalc()"> (8.75% tax California orders only)
+     </span>
+    </label> &nbsp;
+   </div>
+  </th>
+ </tr>
+ 
+ <tr>
+  <th scope="row"><div align="left" class="style11">Shipping Method<span class="style1">*</span></div></th>
+  <td><p align="left">
+   <select name="shipping_method" id="select2">
+    <option value="4.95">USPS - $4.95</option>
+    <option value="5.50">UPS - $5.50</option>
+   </select>
+   </p>
+  </td>
+ </tr>
+ 
+ <tr bgcolor="#FFCCCC">
+  <th class="style6" scope="row">
+   <div align="right">
+    <label>Total</label>&nbsp;
+   </div>
+  </th>
+  
+  <th scope="row"><label></label>
+   <div align="left">
+    <span class="style6">$</span>
+    <input name="gtotal" type="text" id="gtotal" onFocus="this.form.elements[2].focus()" size="10">&nbsp;&nbsp;
+    <input name="gtotalBtn" onClick="grandTotal()" type="button" id="gtotalBtn" value="Calculate Order">
+   </div>
+  </th>
+ </tr>
+</table>
+</form>          
+
+</body>
+
+<script type="text/javascript">
+	
+function subTotal() {
+  var price = document.orderform.price.value * 1;
+  var quantity = document.orderform.quantity.value * 1;
+  prod = price * quantity;
+  document.orderform.subtotal.value = prod.toFixed(2);
+  return prod;
+}
+function taxCalc() {
+  var subTotal = document.orderform.subtotal.value * 1;
+  var stax = 0;
+  if(document.getElementById('billState').checked) {
+    var taxamt = document.orderform.taxamt.value * 1;
+    stax = subTotal * taxamt;
+  }  
+  document.orderform.salestax.value = stax.toFixed(2);
+  return stax;
+}
+function grandTotal() {
+  var subtotal = subTotal();
+  var stax = taxCalc();
+  document.orderform.subtotal.value = subtotal.toFixed(2);
+  document.orderform.salestax.value = stax.toFixed(2);
+  var gtotal = (document.orderform.shipping_method.value * 1) + subtotal + stax;
+  document.orderform.gtotal.value = gtotal.toFixed(2);
+}
+	
+</script>
+
+</html>
