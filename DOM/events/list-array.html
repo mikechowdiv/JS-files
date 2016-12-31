@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+
+<body>
+    <header>
+        <h1>List Items From Array</h1>
+    </header>
+
+    <main>
+        <h2>Press The Button</h2>
+
+        <button id="buttonDoIt">Do It!</button>
+        <ul class="myList"> </ul>
+    </main>
+</body>
+
+<script type="text/javascript">
+	
+document.addEventListener("DOMContentLoaded", init);
+
+let numbers = [1, 5, 13, 16, 34, 42];
+
+function init() {
+    document.getElementById("buttonDoIt").addEventListener("click", function () {
+
+        let ul = document.querySelector(".myList");
+        ul.innerHTML = ""; // clear out the old list
+
+        // You could use a for loop like this:
+//        for (var i = 0; i < numbers.length; i++) {
+//            var listItem = document.createElement('li');
+//            listItem.textContent = numbers[i];
+//            ul.appendChild(listItem);
+//        }
+        
+        // or the built in array foreach loop like this:
+        numbers.forEach(function(value) {
+             var listItem = document.createElement('li');
+            listItem.textContent = value;
+            ul.appendChild(listItem);
+        });
+
+    });
+}
+	
+</script>
+</html>

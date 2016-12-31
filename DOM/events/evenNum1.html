@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title></title>
+   <!-- Latest compiled and minified CSS -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+
+<!-- jQuery library -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+
+<!-- Latest compiled JavaScript -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+</head>
+
+<body>
+
+<div class="container">
+  <div class='panel panel-default'>
+    <div class="panel-body">
+      <h4>Sample Exercise</h4>
+      <p>enter a starting number: </p>
+      <input type="text" id='start'>
+      <p>enter an ending number: </p>
+      <input type="text" id="end">
+      <p>steps</p>
+      <input type="text" id="steps">
+      <input type="submit" value="calculate" onclick='cal()'>
+      <br>
+
+      <p>The result is: <span id='result'></span></p>
+    </div>
+  </div>
+</div>
+
+</body>
+
+<script type="text/javascript">
+  
+function cal(){
+  var start = document.getElementById('start').value;
+  var end = document.getElementById('end').value;
+  var steps = document.getElementById('steps').value;
+  var num1 = parseInt(start);
+  var num2 = parseInt(end);
+  var num3 = parseInt(steps);
+  var output = '';
+
+  for(var i = num1; i <= num2; i += num3){
+    if(i % 2 == 0){
+      output += ("<br/>"+i+"<br/>");
+    }
+  }
+  document.getElementById('result').innerHTML = output;
+}
+
+</script>
+
+</html>

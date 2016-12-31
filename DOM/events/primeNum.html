@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+
+ <div class="container">
+    <h2>But is it a Prime number?</h2>
+  </div>
+  <div class="container">
+    <div class="form-group form-group-lg">
+      <label class="control-label" for="start">Enter number to test</label>
+      <input id="number" class="form-control" type="text" maxlength="9" onkeyup="pVerify()" />
+    </div>
+    <div class="form-group form-group-lg">      
+      <label class="control-label" for="result">Results:</label>
+      <h4 id="isresult"></h4>
+    </div>
+  </div>
+  <div class="container">
+    <h2>Generate Prime numbers.</h2>
+  </div>
+  <div class="container">
+    <div class="form-group form-group-lg">
+      <label class="control-label" for="start">Enter Starting Number (optional)</label>
+      <input id="start" class="form-control" type="text" maxlength="7" onkeyup="pGenerate()" />
+    </div>
+    <div class="form-group form-group-lg">      
+      <label class="control-label" for="end">Enter Ending Number (yeah, this one is required)</label>
+      <input id="end" class="form-control" type="text" maxlength="8" onkeyup="pGenerate()" />
+    </div>
+    <div class="form-group form-group-lg">      
+      <label id="resultlabel" class="control-label" for="result">Prime Number(s)</label>
+      <h4 id="result" style="word-wrap: break-word;"></h4>
+    </div>
+  </div>
+
+</body>
+
+<script type="text/javascript">
+	
+	/*
+*  Using the modulus '%' to determine remainders for diviseable numbers. This inspired by 
+*  an Interview question. Resources include the Sieve of Eratosthenes. Terrific links are
+*  https://en.wikipedia.org/wiki/Sieve_of_Eratosthenes
+*  http://www.scsb.org/trh/prime/sieve2.htm
+*  by Terry Hawthorne
+*  When starting all numbers are prime until tiggered false when modulus returns 
+*  0. At that point the test for that number is over and we set prime to false. 
+*  After completion of the inner loop, we output only those number left standing as 
+*  prime numbers to the document. Remember a prime cannot be diviseable by itself 
+*  nor 1. We have to add (push) any found Prime numbers to the array for testing 
+*  larger numbers. An example of this is the number 667 which can be divisible via 23 and 29.
+*  Only new Primes have to be added as all others have smaller Primes factors in them, e.g.
+*  23 and 29 are Prime but 25 and 27 are divisable via 3 and 5 (25 mod 5 and 27 mod 3) and 
+*  therefor not necessary as the product of them - 675 is already factored out with the 
+*  smaller factors 3 and/or 5. 
+*/
+
+function Model() {
+	'use strict';
+  return {
+    genPrime: function (start, end) {
+      var n, i, j, output = [], sieve = [], upperLimit = Math.sqrt(end);
+      /* Efficiency #1 - (Not Even) Iterate range using step 2 for odd numbers only */
+			//run the sieve for n + 1
+
+			// Make an array from 2 to n and set value of all elements to true
+			for (i = 1; i <= end; i += 1) {
+				sieve.push(true);
+			}
+			//set first elements of sieve to false to account for 0 and 1 not being prime
+			sieve[0] = false;
+			sieve[1] = false;
+
+			// Remove multiples of primes starting from 2, 3, 5,... by counting through array and setting array value to false for multiples
+			for (i = 2; i <= upperLimit; i += 1) {
+				if (sieve[i]) {
+					for (j = i * i; j <= end; j += i) {
+						sieve[j] = false;
+					}
+				}
+			}
+
+			// Loop through the array, selecting all values who are true and output their index to output
+			for (i = 2; i <= end; i += 1) {
+				if (sieve[i]) {
+					if (i >= start) {
+						output.push(i);
+					}
+				}
+			}
+			//alert(output.length);
+			return output;
+		},
+    
+    isPrime: function (n) {
+      var j, prime, p = [2], x = '';
+      prime = true;
+			for (j = 2; j < Math.sqrt(n); j += 1) {
+				if (n % j === 0) {
+					prime = false;
+					return "No, " + n + " is divisible by " + j;
+				}
+			}
+
+			if (prime) {
+				return "Yes, " + n + " is a Prime number";
+			}
+
+    }
+  };
+}
+
+var mySample = new Model();
+
+function pGenerate() {
+	'use strict';
+  if (document.getElementById("end").value === "") {
+    document.getElementById("result").innerHTML = "";
+    document.getElementById("resultlabel").innerHTML = "Results:";
+    return;
+  }
+  var nrs, nre, xs, cap;
+  nrs = parseInt(document.getElementById("start").value, 10);
+  nre = parseInt(document.getElementById("end").value, 10);
+  if (isNaN(nrs) && isNaN(nre)) { return; }
+  if (isNaN(nrs)) { nrs = document.getElementById("start").value = 0; }
+  xs = mySample.genPrime(nrs, nre);
+  document.getElementById("result").innerHTML = xs;
+  if (xs.length === 1) {
+    cap = "There is " + xs.length + " Prime number from ";
+  } else {
+    cap = "There are " + xs.length + " Prime numbers from ";
+  }
+  document.getElementById("resultlabel").innerHTML = cap + nrs + " to  " + nre;
+}
+
+function pVerify() {
+	'use strict';
+  if (document.getElementById("number").value === "") {
+    document.getElementById("isresult").innerHTML = "Doin nothing here . . . please enter another number";
+    return;
+  }
+  var sn;
+  sn = parseInt(document.getElementById("number").value, 10);
+  if (isNaN(sn)) { return; }
+  document.getElementById("isresult").innerHTML = mySample.isPrime(sn);
+}
+</script>
+</html>

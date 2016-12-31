@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title></title>
+  <title></title>
+  <!-- Latest compiled and minified CSS -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+
+<!-- jQuery library -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+
+<!-- Latest compiled JavaScript -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+</head>
+<body>
+
+<div class='container form1'>
+  <div class="panel panel-default">
+   <div class="panel-body">
+      <h4>Odd and Even Number Checker</h4>
+      <p>Enter a number: </p>
+      <input type="text" id="userInput">
+      <input type="submit" value="Check" title='click to Check' onclick="cal()">
+      <input type="submit" value="Clear" title="click to clear the box" onclick="clearr()">
+      <br>
+
+      <p id='result'></p>
+   </div>  
+  </div>
+</div>
+
+
+</body>
+
+<style type="text/css">
+  body{
+    padding-top: 250px;
+  }
+
+  .form1{
+    width: 390px;
+  }
+</style>
+
+
+<script type="text/javascript">
+  
+function clearr(){
+  
+  document.getElementById('result').innerHTML = '';
+  document.getElementById('userInput').value = '';
+  document.getElementById('userInput').focus();
+}
+
+function cal(){
+  var input = document.getElementById('userInput').value;
+  var num = parseInt(input);
+  if(isNaN(num)){
+    alert('please enter a number');
+  }
+  else if(input.length === 0){
+    alert('please enter a valid input');
+  }
+  else if(input % 2 == 0){
+    document.getElementById('result').innerHTML = num + ' is even number';
+  }
+  else{
+    document.getElementById('result').innerHTML = num + ' is odd number';
+  }
+}
+
+
+
+
+</script>
+</html>

@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+
+<h1>For Loop Generator</h1>
+<p>Enter a number for generate more inputs</p>
+<input type="number" id="myInput" placeholder="1,2,3 or other" onchange="myFun()">
+<input type="submit" value="start" onclick="myFun()">
+<span id='box'></span>
+
+<ol id='b'></ol>
+
+</body>
+
+<script type="text/javascript">
+	
+function myFun(){
+	var x = myInput.value;
+	var result = '';
+	for(var i = 0; i < x; i++){
+		result += "<li><input type='text' /></li>";
+		b.innerHTML = result;
+	}
+}
+
+</script>
+</html>

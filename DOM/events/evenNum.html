@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Even Numbers</title>
+   <!-- Latest compiled and minified CSS -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+
+<!-- jQuery library -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+
+<!-- Latest compiled JavaScript -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+</head>
+
+<body>
+
+<div class="container">
+<div class="panel panel-default userinput">
+<div class="panel-body">
+  <form class="form-horizontal ">
+    <h1>Sample Exercise</h1>
+      <div class="form-group">
+        <label class="col-sm-2 control-label">Enter a starting number: </label>
+        <div class="col-sm-10">
+          <input type="text" class="form-control" id="start">
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label class="col-sm-2 control-label">Enter an ending number: </label>
+        <div class="col-sm-10">
+          <input type="text" class="form-control" id="end">
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label class="col-sm-2 control-label">Steps: </label>
+        <div class="col-sm-10">
+          <input type="text" class="form-control" id="steps">
+        </div>
+      </div>
+
+      <div class="form-group">
+        <div class="col-sm-offset-2 col-sm-10">
+          <input type="button" value="calculate" onclick='cal()'>
+        </div>
+      </div>
+
+     <p>The result is: <span id='result'></span></p>
+  </form>
+</div>
+</div>
+</div>
+
+
+</body>
+
+<style type="text/css">
+  .userinput{
+    width: 990px;
+  }
+</style>
+
+<script type="text/javascript">
+  
+function cal(){
+  var start = document.getElementById('start').value;
+  var end = document.getElementById('end').value;
+  var steps = document.getElementById('steps').value;
+  var num1 = parseInt(start);
+  var num2 = parseInt(end);
+  var num3 = parseInt(steps);
+  var output = '';
+
+  for(var i = num1; i <= num2; i +=(num3 * 2)){
+    if(i % 2 == 0){
+      output += i;
+    }
+    
+  }
+  document.getElementById('result').innerHTML =output;
+}
+
+</script>
+
+</html>

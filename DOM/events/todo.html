@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+
+<section id="input">
+	<form class="todoForm">
+		<label for="todoItemInput">To Do:</label>
+		<input id="todoItemInput" type="text" />
+		<input id="addItemBtn" type="button" value="Add ToDo &raquo;" />
+	</form>
+</section>
+
+<section id="output" class="todo">
+	<h1 class="todo-title">Things to do today:</h1>
+	<ol id="todoList">
+		
+	</ol>
+</section>
+
+</body>
+
+<script type="text/javascript">
+	
+	var todoList = document.getElementById("todoList");
+	var todoItemInput = document.getElementById("todoItemInput");
+	var addItemBtn = document.getElementById("addItemBtn");
+	var todoArray = ["Attend Code(Her)", "Learn JavaScript"];
+
+addItemBtn.onclick = function() {
+	todoList.innerHTML = "";
+	todoArray.push(todoItemInput.value);
+	for (var i = 0; i < todoArray.length; i++) {
+		todoList.innerHTML += "<li>" + todoArray[i] + "</li>";
+	}
+}
+
+</script>
+
+</html>

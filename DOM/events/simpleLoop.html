@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+
+<h1>Simple Loops - for loop</h1>
+<p>Insert the number of temperatures you would like converted <input id="num" ></p>
+<p><input type="button" value="submit" id="submit"></p>
+
+<p>Note that the <b>Math.round()</b> method is used, so that the result will be returned as an integer.</p>
+<div id="answer"></div>
+
+</body>
+
+<script type="text/javascript">
+	
+var Num = document.getElementById('num');
+var f=0;
+var c=0;
+
+submit.addEventListener ("click", function() {
+var node = document.getElementById('answer');
+//loop
+	for(var i = 0; i < Num.value; i+=1){
+  	c = Math.round((f-32)*5/9); //conversion statement
+  	var message = document.createElement('p');
+		message.appendChild(document.createTextNode ( f +'℉ > ' + c +'℃' ));
+    node.appendChild(message);	
+    f++
+	}
+});
+	
+</script>
+</html>
