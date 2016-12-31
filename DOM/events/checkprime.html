@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script><!-- Latest compiled and minified CSS -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+
+<!-- jQuery library -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+
+<!-- Latest compiled JavaScript -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+</head>
+<body>
+
+<div class="container">
+	<h1>Verify a prime number</h1>
+	<p>A prime number is only divisible by itself and 1</p>
+	<hr>
+
+	<form class="form">
+		<div class="row">
+			<div class="col-sm-12">
+				<label for="label">Enter a number</label>
+				<input type="text" name="prime" id='prime'>
+				<a id='testNumber' class="btn btn-default">Test</a>
+			</div>
+		</div>
+	</form>
+
+	<div class="row">
+		<div class="col-sm-12">
+			<div id='result'></div>
+		</div>
+	</div>
+</div>
+
+</body>
+
+<script type="text/javascript">
+	
+	function isPrime(n){
+		var divisor = 2;
+		while(n > divisor){
+			if(n % divisor == 0){
+				var message = 'divisible by ' + divisor;
+				return message;
+			}else{
+				divisor++;
+			}
+		}
+		return n + ' is a prime number';
+	}
+
+	$('#testNumber').click(function(){
+		var numberToTest = $('#prime').val();
+		var result = isPrime(numberToTest);
+		$('#result').html(result);
+	})
+</script>
+</html>

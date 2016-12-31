@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Prime Number Checker</title>
+</head>
+<body>
+
+<h1>Prime Number Checker</h1>
+<p>Enter a number to see if it is a prime number.</p>
+<p>
+	<input type="number" id="theNum">
+	<button id='check'>Check: </button>
+</p>
+
+<p id='result'></p>
+
+</body>
+
+<script type="text/javascript">
+	
+var check = document.getElementById('check');
+var result = document.getElementById('result');
+
+check.addEventListener('click',function(){
+	var theNum = document.getElementById('theNum').value;
+	var theResult = '';
+
+	for(var i = 2; i <= (theNum / 2); i++){
+		if(theNum > 9999999){
+			theResult = 'sorry the number is too big';
+			break;
+		}else if(theNum % i == 0){
+			theResult = 'The number ' + theNum + ' is not a prime number.  The lowest number that ' +theNum + ' is divisible by is ' + i + '.'
+			break; 
+		}else{
+			theResult = 'The number ' + theNum + " is a prime number";
+		}
+	}
+	result.innerHTML = theResult;
+})	
+
+</script>
+</html>

@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+  <p class="title">Random Input Number Generator</p>
+  <p class="blue">
+    <input type="number" min="0" id="digits" value="6" class="default-input"> Enter the number of digits the generated number will have
+  </p>
+  <input type="number" id="output" class="default-input">
+  <button onclick="randomGeneration()" class="default-button">Generate a number !</button>
+  <br>
+  <input type="checkbox" id="noZeroStart" class="default-input"><span class="blue">Do not generate a number starting with 0</span></input>
+</body>
+
+<script type="text/javascript">
+	
+function randomGeneration() {
+  var generatedNb = [],
+      digits = parseInt(document.getElementById("digits").value);
+
+  for (i = 0; i < digits; i++) {
+    if (i == 0 && document.getElementById("noZeroStart").checked == true) {
+      generatedNb[generatedNb.length] = Math.floor((Math.random() * 9) + 1);
+    } else {
+      generatedNb[generatedNb.length] = Math.floor(Math.random() * 10);
+    }
+  }
+  
+  document.getElementById("output").value = generatedNb.join("");
+}
+</script>
+
+</html>
