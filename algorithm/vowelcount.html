@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+
+</body>
+
+<script type="text/javascript">
+	
+function vowelCount(str1){
+	var voewlList = 'aeiouAEIOU';
+	var vcount = 0;
+	for(var i = 0; i < str1.length; i++){
+		if(voewlList.indexOf(str1[i]) !== -1){
+			vcount += 1;
+		}
+	}
+	return vcount;
+}
+console.log(vowelCount("The quick brown fox"));
+
+</script>
+</html>

@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+
+<p>Write a JavaScript function that accepts a string as a parameter and find the longest word within the string.</p>
+
+</body>
+
+<script type="text/javascript">
+	
+function findLongest(str){
+	var arr1 = str.match(/\w[a-z]{0,}/gi);
+	var result = arr1[0];
+	for(var i = 1; i < arr1.length; i++){
+		if(result.length < arr1[i].length){
+			result = arr1[i];
+		}
+	}
+	return result;
+}
+console.log(findLongest('web development tutorial'));
+
+
+/*The match() method is used to retrieve the matches when matching a string against a regular expression.
+Therefore str.match(/\w[a-z]{0,}/gi) will return ["Web", "Development", "Tutorial"].
+
+For loop checks the length of the array element and compare with previous one and finally return the longest string.
+
+The length property represents an unsigned, 32-bit integer that is always numerically greater than the highest index in the array.
+Syntax -> arr.length*/
+
+</script>
+</html>

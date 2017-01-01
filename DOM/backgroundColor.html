@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+
+<div id="target-area" style="padding: 30px; border: 1px solid black;">
+   Mouse over this block.
+  </div>
+
+</body>
+
+<script type="text/javascript">
+	
+ var TargetArea = document.getElementById("target-area") ;
+  
+   TargetArea.onmouseover = function () {
+    TargetArea.style.backgroundColor = "red" ;
+   } ;
+
+   TargetArea.onmouseout = function () {
+    TargetArea.style.backgroundColor = "white" ;
+   } ;
+
+</script>
+</html>

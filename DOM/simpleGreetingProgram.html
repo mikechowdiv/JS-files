@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+
+ Hello, <span id="my-name">User</span>!
+ Enter name: <input type="text" id="user-name" value="My Name" />
+ <input type="button" id="greet-button" value="Greet Me" />
+
+</body>
+
+<script type="text/javascript">
+	
+	function PerformGreeting () {
+    document.getElementById("my-name").innerHTML = document.getElementById("user-name").value ;
+   };
+
+   var GreetButton = document.getElementById("greet-button") ;
+   GreetButton.onclick = PerformGreeting ;
+
+</script>
+</html>

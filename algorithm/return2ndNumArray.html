@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+
+<P>Write a JavaScript function which will take an array of numbers stored and find the second lowest and second greatest numbers, respectively.</P>
+
+</body>
+
+<script type="text/javascript">
+	
+function myFun(arr1){
+	arr1.sort(function(x,y){
+		return x - y;
+	});
+	var uniqa = [arr1[0]];
+	var result = [];
+
+	for(var i = 1; i < arr1.length; i++){
+		if(arr1[i-1] !== arr1[i]){
+			uniqa.push(arr1[i]);
+		}
+	}
+	result.push(uniqa[1], uniqa[uniqa.length - 2]);
+	return result.join(',');
+} 
+console.log(myFun([1,2,3,4,5,6,7,9]))
+
+</script>
+</html>

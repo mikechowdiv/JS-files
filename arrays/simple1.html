@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+
+
+ The
+   <select id="dwarves-numbers">
+     <option value="0" >1st</option>
+     <option value="1" >2nd</option>
+     <option value="2" >3rd</option>
+     <option value="3" >4th</option>
+     <option value="4" >5th</option>
+     <option value="5" >6th</option>
+     <option value="6" >7th</option>
+   </select>
+
+   Dwarf is <span id="dwarf-name">Doc</span>.
+
+
+</body>
+
+<script type="text/javascript">
+	
+	var Dwarves =
+    ["Doc","Grumpy","Happy","Sleepy","Bashful","Sneezy","Dopey"] ;
+
+   function SetDwarf() {
+   	 var dwarfNumber = document.getElementById("dwarves-numbers").value ;
+   	 var dwarf = Dwarves[dwarfNumber] ;
+   	 document.getElementById("dwarf-name").innerHTML = dwarf ;
+   }
+
+   document.getElementById("dwarves-numbers").onclick = SetDwarf ;
+
+</script>
+</html>

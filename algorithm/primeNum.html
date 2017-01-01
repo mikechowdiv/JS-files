@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+<p>Write a JavaScript function to get all prime numbers from 0 to a specified number</p>
+</body>
+
+<script type="text/javascript">
+	
+function prime(max){
+	var store = [];
+	var i;
+	var j;
+	var primes = [];
+	for(i=2; i<= max; ++i){
+		if( !store[i]){
+			primes.push(i);
+			for(j = i << 1; j <= max; j += i){
+				store[j] = true;
+			}
+		}
+	}
+	return primes;
+}
+
+console.log(prime(5));
+
+</script>
+</html>

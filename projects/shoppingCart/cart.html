@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<link rel="stylesheet" type="text/css" href="style.css">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+	<script type="text/javascript" src='script.js'></script>
+</head>
+<body>
+
+
+<div class="title">
+  	<strong>Madd Hatter Music</strong></br>
+	<small>Shopping Cart<small><br>
+ </div>
+
+<table width="50%">
+  <thead>
+    <tr>
+      <th>Category</th>
+      <th>Product</th>
+      <th>Price</th>
+      <th>Quantity</th>
+      <th>Subtotal</th>
+    </tr>
+  </thead>
+ 	 <tbody id="cart"></tbody>
+ </table>
+
+<tfoot>
+  <h1>Total Value: <span class="totalPrice"></span></h1></br>
+  </br><input type="button" id="addProduct" value="Add Product"/>
+  <input type="button" id="submit" value="Submit Order"/>
+  
+<form id="registration">
+
+	<div id="Name">
+		First Name: <input type="text" name="fname" value=""/></br>
+		Last Name: <input type="text" name="lname" value=""/></br>
+	</div>
+
+	<div class="email"/>  
+		Emal Address: <input type="text" name="email" value=""/></br> 
+		Confirm Email: <input type="text" name="email" value=""/></br>
+		Password: <input type="password"/></br>
+
+		<h1> Payment Method </h1></br>
+		Name on card: <input type="text" name = "cardName" value=""/></br>
+		Card number: <input type="number" name ="cardNumber" value =""/></br>
+		Expiration Date: <input type="number" name ="expirationDate" value =""/></br>
+		Card Security Code: <input type="number" name ="securityCode" value =""/></br>
+		Address: <input type="text" name="address" id="address" value=""/> </br>
+		City: <input type="text" name="city" id="city" /></br>
+		State: <input type="text" name="state" id="state" size="2" maxlength = "2"/>
+		Zip: <input type="text" name="zip" id="zip" maxlength="5" size="5"/> </br>
+		Country: <input type="text" name="country" id="country"/> </br>
+	</div>
+
+	<input type="submit" value="Submit"/>
+</form>
+
+
+</body>
+</html>
