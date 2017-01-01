@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+
+<h1>Prime Number Checker</h1>
+<p>Enter a number below: </p>
+<form id='myForm'>
+	<input type="number" id="numInput">
+	<button>Submit</button>
+</form>
+
+<div id='answer'></div>
+
+</body>
+
+<script type="text/javascript">
+	
+var myForm = document.getElementById('myForm');
+var numInput = document.getElementById('numInput');
+var answer = document.getElementById('answer');
+
+myForm.addEventListener('submit',function(e){
+	e.preventDefault();
+	var userInput = Number(numInput.value);
+	answer.innerHTML = isPrime(userInput);
+});
+
+function isPrime(value){
+	for(var i = 2; i < value; i++){
+		return (value % i === 0) ? value + ' is not a prime' : value + ' is a prime';
+	}
+}
+
+</script>
+
+</html>

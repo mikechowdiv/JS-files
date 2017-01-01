@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+
+
+<h1>Prime Number Checker</h1>
+<p>Enter a number below: </p>
+<form id='myForm'>
+	<input type="number" id="numInput">
+	<button>Submit</button>
+</form>
+
+<div id='answer'></div>
+
+
+</body>
+
+<script type="text/javascript">
+	
+var myForm = document.getElementById('myForm');
+var numInput = document.getElementById('numInput');
+var answer = document.getElementById('answer');
+
+myForm.addEventListener('submit',function(e){
+	e.preventDefault();
+	var userInput = Number(numInput.value);
+	answer.innerHTML = isPrime(userInput);
+});
+
+function isPrime(n){
+	if(n === 1){
+		return false;
+	}else if(n === 2){
+		return true;
+	}else{
+		for(var i = 2; i < n; i++){
+			if(n % i === 0){
+				return n + " is not a prime"
+			}
+		}
+		return n + " is a prime"
+	}
+}
+
+</script>
+
+</html>

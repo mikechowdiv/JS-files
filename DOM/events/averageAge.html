@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+</head>
+<body>
+
+<h4>Find the average age of a group</h4>
+<input type="text" placeholder="first name" id='name'>
+<input type="number" placeholder="age" id='age'>
+<button id='submit'>submit</button>
+
+<h4>Average Age:</h4>
+<p class="average"></p>
+
+<div>
+	<h4>Names</h4>
+	<ul class="names"></ul>
+</div>
+
+<div>
+	<h4>Ages</h4>
+	<ul class="ages"></ul>
+</div>
+
+</body>
+
+<script type="text/javascript">
+	
+var personList = [];
+
+var submit = document.querySelector('#submit');
+submit.addEventListener('click',function(){
+	var name = document.querySelector('#name');
+	var age = document.querySelector('#age');
+	var person = {
+		name: name.value,
+		age: age.value
+	}
+	if(name.value !== '' && age.value !== ''){
+		personList.unshift(person);
+		average();
+		randerList();
+		clearVal();
+	}else{
+		alert('please complete both fields');
+	}
+});
+
+function randerList(){
+	var nameList = document.querySelector('.names');
+	nameList.innerHTML = '';
+	var ageList = document.querySelector('.ages');
+	ageList.innerHTML = '';
+
+	personList.forEach(function(person){
+		var liName = document.createElement('li');
+		liName.innerText = `${person.name}`;
+		nameList.appendChild(liName);
+		var liAge = document.createElement('li');
+		liAge.innerText = `${person.age}`;
+		ageList.appendChild(liAge);
+	});
+}
+
+function clearVal(){
+	var nameE1 = document.querySelector('#name');
+	var ageE1 = document.querySelector('#age');
+	nameE1.value = '';
+	ageE1.value = '';
+}
+
+function average(){
+	var ageTotal = 0;
+	var averageE1 = document.querySelector('.average');
+	personList.forEach(function(person){
+		ageTotal = (ageTotal + parseInt(person.age));
+	});
+	averageE1.innerHTML = Math.round(ageTotal / personList.length);
+}
+
+</script>
+</html>
