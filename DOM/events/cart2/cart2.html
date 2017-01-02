@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<link rel="stylesheet" type="text/css" href="style.css">
+	<script type="text/javascript" src='script.js'></script>
+</head>
+<body onload="form1.txtAppleQ.focus();">
+	<form id="form1">
+		<table>
+			<!-- Table header -->
+			<tr><th class="center" colspan="4">Order Form</th></tr>
+			<!-- Table subheadings -->
+			<tr><th>Quantity</th><th>Item</th><th>Unit Price</th><th>Total</th></tr>
+			<!-- Apple table row -->
+			<tr><th><input class="right" type="text" id="txtAppleQ" value="" tabindex="1" /></th><th>Apples</th><td class="right">$5.49</td><th><input class="right" type="text" id="txtAppleT" value="" readonly/></th></tr>
+			<!-- Pear table row -->
+			<tr><th><input class="right" type="text" id="txtPearsQ" value="" tabindex="2"/></th><th>Pears</th><td class="right">$7.49</td><th><input class="right" type="text" id="txtPearsT" value="" readonly/></th></tr>
+			<!-- Grape table row -->
+			<tr><th><input class="right" type="text" id="txtGrapesQ" value="" tabindex="3"/></th><th>Grapes</th><td class="right">$6.49</td><th><input class="right" type="text" id="txtGrapesT" value="" readonly/></th></tr>
+			<!-- Subtotal table row -->
+			<tr><th><input class="right" type="text" id="txtQuantity" value="" readonly/></th><th class="right" colspan="2">Subtotal</th><th><input class="right" type="text" id="txtSubT" value="" readonly/></th></tr>
+			<!-- Tax table row -->
+			<tr><th class="right" colspan="3">Tax @ 6%</th><th><input class="right" type="text" id="txtTax" value="" readonly/></th></tr>
+			<!-- Total table row -->
+			<tr><th><input type="button" value="Compute" tabindex="4" onclick="compute();"></th><th class="right" colspan="2">Total</th><th><input class="right" type="text" id="txtTotal" value="" readonly/></th></tr>
+		</table>
+	</form>
+</body>
+</html>

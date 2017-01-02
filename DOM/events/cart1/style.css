@@ -1,0 +1,60 @@
+body {
+  background: #FFF;
+  font-family: Helvetica, Arial, sans-serif;
+  font-size: 16px;
+  max-width: 450px;
+  margin: 0 auto;
+}
+.explanation {
+  background-color: #dbd1ff;
+  max-width: 450px;
+  line-height: 30px;
+  padding: 10px;
+  margin: 10px auto;
+  border-bottom: 1px solid #bababa;  
+}
+.explanation span {
+  display: block;
+  margin-top: 10px;
+  font-size: 12px;
+}
+table {
+  border-collapse: collapse;
+}
+
+thead {
+  background: #dbd1ff;
+}
+tbody tr:hover {
+  background: #dbd1ff;
+}
+tr {
+  border-bottom: 1px solid #bababa;
+}
+
+tr:nth-child(2) {
+  background: #fafafa;
+}
+
+th, td {
+  padding: 4px;
+}
+
+input[type=text] {
+  text-align: right;
+  width: 60px;
+}
+.row-total {
+  min-width: 95px;
+  text-align: center;
+}
+.total {
+  line-height: 30px;
+  padding-left: 10px;
+  background-color: #dbd1ff;
+  border-bottom: 1px solid #bababa; 
+}
+
+.total span {
+  font-weight: bold;
+}

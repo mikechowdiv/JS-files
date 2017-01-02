@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+
+<div class ="form container">
+		<h2> Sales Tax Calculator</h5>
+		<form name="orderform" id="orderform">
+		<table border="10">
+</div>
+  <tr><th>
+   <label>Product: </label>
+  </th>
+  <th scope="row">
+   <div align="left">
+    <label><span>$</span></label>
+    <input name="price" type="text" size="10">
+   </div>
+  </th>
+
+  
+  <tr><th>
+   <label>Quantity</label>
+  </th>
+  <th scope="row">
+   <div align="left">
+    <label><span>#</span></label>
+    <input name="quantity" type="text" id="quantity" size="10">
+   </div>
+  </th>
+ 
+  <tr><th>
+   <label>Subtotal:</label>
+  </th>
+  <th scope="row">   
+   <div align="left">
+    <label>$</label>
+    <input name="subtotal" type="text" id="subtotal" size="10"> &nbsp;&nbsp;
+    <input class="btn-danger" name="subBtn" onClick="subTotal();" type="button" id="subBtn" value="Subtotal">
+   </div>
+  </th>
+ </tr>
+  
+   <tr><th>
+   <label>Tax:</label>
+  </th>
+   <th scope="row">
+   <div align="left">
+    <label>$</label>
+     <input name="salestax" type="text" id="salestax"  size="10"> &nbsp;&nbsp;               
+     <input class="btn-danger" name="taxBtn" onClick="calculateTax();" type="button" id="taxBtn" value="Tax">  
+   </div>
+  </th>
+ </tr>
+ 
+  <tr><th>
+   <label>Total:</label>
+  </th>
+  <th scope="row">
+   <div align="left">
+    <label>$</label>
+    <input name="gtotal" type="text" id="gtotal" onFocus="this.form.elements[2].focus()" size="10"> &nbsp;&nbsp;
+    <input class="btn-danger" name="gtotalBtn" onClick="grandTotal();" type="button" id="gtotalBtn" value="Calculate Order">
+   </div>
+  </th>
+ </tr>
+</table>
+</form>      
+</div>
+
+</body>
+
+<script type="text/javascript">
+	
+
+function subTotal() {
+  var price = document.orderform.price.value;
+  var quantity = document.orderform.quantity.value;
+  productPrice = price * quantity;
+  document.orderform.subtotal.value = productPrice.toFixed(2);
+  return productPrice;
+}
+
+function calculateTax() {
+  var subTotal = document.orderform.subtotal.value;
+  var stax = 0.03;
+    tax = subTotal * stax;
+  document.orderform.salestax.value = tax.toFixed(3);
+  return tax;
+}
+ 
+function grandTotal() {
+  var subtotal = subTotal();
+  var tax = calculateTax();
+  document.orderform.subtotal.value = subtotal.toFixed(2);
+  document.orderform.salestax.value = tax.toFixed(2);
+  var gtotal = subtotal + tax;
+  document.orderform.gtotal.value = gtotal.toFixed(2);
+}
+	
+</script>
+
+</html>
