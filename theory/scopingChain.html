@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Scoping Chain</title>
+</head>
+<body>
+
+</body>
+
+<script type="text/javascript">
+
+//each new function creates a scope: the space / environment in which the variables it defines are accessible.
+
+//lexical scoping: a function that is lexically within another function gets access to the scope of the outer function.
+
+
+//global scope
+var a = 'hello';
+first();
+
+function first(){
+		//first() scope
+	var b = 'hi';
+	second();
+
+	function second(){
+			//second() scope
+		var c = 'hey';
+		//console.log(a + b + c);
+		third();
+			//second() scope
+	}
+		//first() scope
+}	
+//global scope
+
+
+function third(){
+	var d = 'John';
+	//console.log(c);
+	console.log(a+d)
+}
+
+</script>
+
+</html>

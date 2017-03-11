@@ -1,0 +1,67 @@
+<head>
+	<link rel="stylesheet" type="text/css" href="style.css">
+	 <script type="text/javascript" src="script.js"></script>
+</head>
+
+<body>
+  <div class="box">
+	<div id="left">
+		<h2>PURCHASE PRICE</h2>
+		<div style="background: white; height: 39px;">
+			<input width="60px" id="range" type="text" value="$100,000" onfocus="this.select(); this.selAll=1;" onkeyup="changedPP(this.value)">
+		</div>
+		<input type="range" min="30000" max="1000000" step="5000" value="100000" onchange="showPurchase(this.value)" />
+	</div>
+
+	<div id="left">
+		<h2>DOWN PAYMENT</h2>
+		<div>
+			<div style="background: white; height: 39px;width: 30%;float:left;">
+				<input id="range2" type="text" value="15 %" onkeyup="changedDP(this.value)" onchange="focusoutDP(this.value)">
+			</div>
+			<div style="background: white; height: 39px;width: 65%;float:right;">
+				<input id="range3" type="text" value="$4,500" onfocus="this.select(); this.selAll=1;" onkeyup="changedDPV(this.value)">
+			</div>
+		</div>
+		<input type="range" min="1" max="100" value="15" onchange="showDownPay(this.value)" />
+	</div>
+	<br clear="left"/>
+
+	<div id="left">
+		<h2>MORTGAGE TERM</h2>	
+
+		<div style="margin-top:25px;">
+			<div style="text-align:left;width:120px;max-width:120px;display:inline;">
+				<div style="margin-top:-5px;float:left;margin-right:10px;">
+					<input type="radio" onchange="verify()" class="styled" checked="checked" id="m1" name="mortgage" value="30"><label id="label30" for="m1"></label>
+				</div><span style="color:white;float:left;">30 year</span>
+			</div>
+
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+			<div style="text-align:left;max-width:120px;display:inline;">
+				<div style="margin-top:-5px;float:left;margin-left:25px;margin-right:10px;">
+					<input type="radio" onchange="verify()" class="styled" id="m2" name="mortgage" value="15"><label id="label15" for="m2"></label>
+				</div><span style="color:white;float:left;">15 year</span>	
+			</div>
+	    </div>
+	</div>
+
+	<div id="left">
+		<h2>INTEREST RATE</h2>
+		<div style="background: white; height: 39px;">
+			<input id="interest" type="text" value="4 %" onkeypress="enterCheck()" onchange="focusoutIR(this.value)">
+		</div>
+		<input type="range" min="1.0" max="10.0" value="4" step=".5" onchange="changedIR(this.value)" />
+		<br/><br/><br/>
+	</div>
+	<br clear="left"/>	
+
+	<div id="calc">
+		<span style="color:white;">Estimated Monthly Payment:</span>
+	</div>
+
+	<div id="bot">
+		<span id="range4" style="color:white;">$121.74</span>
+	</div>
+    </div>
+</body>

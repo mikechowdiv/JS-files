@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<!-- Latest compiled and minified CSS -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+
+<!-- jQuery library -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+
+<!-- Latest compiled JavaScript -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+</head>
+<body>
+
+<div class="container form1">
+	<div class="panel panel-default">
+		<div class="panel-body form2" >
+			<h4>Even Numbers in Steps</h4>
+
+			<form class="form-horizontal">
+				<div class="form-group">
+					<label class="col-sm-4 control-label">Starting number:</label>
+					 <div class="col-sm-6">
+						<input type="text" id="start" class="form-control">
+					</div>				
+				</div>				
+				<div class="form-group">
+					<label class="col-sm-4 control-label">Ending number:</label>
+					<div class="col-sm-6">
+						<input type="text" id="end" class="form-control">
+					</div>	
+				</div>
+				<div class="form-group">
+					<label class="col-sm-4 control-label">Steps:</label>
+					<div class="col-sm-6">
+						<input type="text" id="steps" class="form-control">
+					</div>	
+				</div>	
+				<div class="form-group">
+					<div class="col-sm-offset-2 col-sm-10">
+      				<button type="button" class="btn btn-default" onclick="cal()">Display Evens</button>
+    				</div>
+				</div>	
+			</form>
+			
+			<p>Here are the even numbers between <span id='startDisplay'>#</span> and <span id='endDisplay'>#</span> by <span id='stepsDisplay'>#</span></p>
+			<p id='result'></p>
+		</div>
+		
+	</div>
+</div>
+
+</body>
+
+<style type="text/css">
+	body{
+		padding-top: 250px;
+	}
+	.form1{
+		width: 550px;
+	}
+
+</style>
+
+
+<script type="text/javascript">
+	
+
+function cal(){
+  var start = document.getElementById('start').value;
+  var end = document.getElementById('end').value;
+  var steps = document.getElementById('steps').value;
+  var num1 = parseInt(start);
+  var num2 = parseInt(end);
+  var num3 = parseInt(steps);
+  var startDisplay = document.querySelector('#startDisplay');
+  var endDisplay = document.querySelector('#endDisplay');
+  var stepsDisplay = document.querySelector('#stepsDisplay');
+  var output = '';
+
+  if(start == null || start == '' || start < 0){
+    alert('the number cannot be emptry or negative');
+    return false;
+  }
+
+  for(var i = num1; i <= num2; i += num3){
+    if(i % 2 == 0){
+      output += ('<br/>' + i + '<br/>');
+    }
+  }
+  document.getElementById('result').innerHTML = output;
+  startDisplay.textContent = start;
+  endDisplay.textContent = end;
+  stepsDisplay.textContent = steps;
+}
+
+
+
+</script>
+</html>

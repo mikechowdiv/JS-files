@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>DOM Pig Game</title>
+</head>
+<body>
+
+<div class="wrapper">
+	<div class="player-0-panel active">
+		<div class="player-name" id='name-0'>Player 1</div>
+		<div class="player-score" id='score-0'>44</div>
+		<div class="player-current-box">
+			<div class="player-current-label">Current</div>
+			<div class="player-current-score" id='current-0'>44</div>
+		</div>
+	</div><br>
+
+	<div class="player-1-panel">
+		<div class="player-name" id='name-1'>Player 2</div>
+		<div class="player-score" id='score-1'>33</div>
+		<div class="player-current-box">
+			<div class="player-current-label">Current</div>
+			<div class="player-current-score" id='current-1'>33</div>
+		</div>
+	</div>
+</div>
+
+<button class="btn-new"><i class=""></i>New Game</button>
+<button class="btn-roll"><i class=""></i>Roll dice</button>
+<button class="btn-hold"><i class=""></i>Hold</button>
+
+<img src="dice-5.png" class="dice">
+
+</body>
+
+
+<style type="text/css">
+	
+.active {
+	background-color: red;
+}
+
+</style>
+
+
+<script type="text/javascript">
+	
+var scores, roundScore, activePlayer, dice;
+
+scores = [0,0];
+roundScore = 0;
+activePlayer = 0;
+
+document.querySelector(".dice").style.display = "none";
+document.getElementById('score-0').textContent = 0;
+document.getElementById('score-1').textContent = 0;
+document.getElementById('current-0').textContent = 0;
+document.getElementById('current-1').textContent = 0;
+document.querySelector('.btn-roll').addEventListener('click',function(){
+	var diceX = Math.floor(Math.random() * 6) + 1;
+	var diceDOM = document.querySelector('.dice');
+	diceDOM.style.display = 'block';
+	diceDOM.src = 'dice-' + diceX + ".png";
+	if(diceX !== 1){
+		roundScore += diceX;
+		document.querySelector('#current-' + activePlayer).textContent = roundScore;
+	}else{
+		activePlayer === 0 ? activePlayer = 1 : activePlayer = 0;
+		roundScore = 0;
+		document.getElementById('current-0').textContent = '0';
+		document.getElementById('current-1').textContent = '0';
+		document.querySelector('.player-0-panel').classList.toggle('active');
+		document.querySelector('.player-1-panel').classList.toggle('active');
+		document.querySelector('.dice').style.display = 'none';
+		}
+});
+
+
+</script>
+
+
+</html>

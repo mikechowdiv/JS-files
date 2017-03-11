@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Hoisting</title>
+</head>
+<body>
+
+</body>
+
+<script type="text/javascript">
+	
+console.log(age); //undefined
+var age = 23; //global execution context
+
+function foo(){
+	console.log(age); //undefined
+	var age = 65;
+	console.log(age); //print 65
+}
+foo();
+console.log(age); // print 23
+
+</script>
+
+</html>

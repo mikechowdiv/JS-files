@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+
+</body>
+
+<script type="text/javascript">
+
+//console.log(this);	
+
+// calAge(1985);
+
+// function calAge(year){
+// 	console.log(2016 - year);
+// 	console.log(this);
+// }
+
+var john = {
+	name: 'John',
+	yearOfBirth: 1999,
+	calAge: function(){
+		console.log(this);
+		console.log(2016 - this.yearOfBirth);
+
+		// function innerFun(){
+		// 	console.log(this);
+		// }
+		// innerFun();
+	}
+}
+
+john.calAge();
+
+var mike = {
+	name: 'Mike',
+	yearOfBirth: 1984
+};
+
+//method borrowing from john's.
+mike.calAge = john.calAge;
+mike.calAge();
+
+</script>
+
+</html>
